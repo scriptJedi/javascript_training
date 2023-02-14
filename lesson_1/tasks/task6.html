@@ -14,18 +14,18 @@
     <p>З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо
         та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.</p>
     <script>
-      let firstProductCost = prompt('Вартість першого продукта', '');
-      let firstProductQuantity = prompt('Кількість першого продукта', '');
+      let firstProductCost = parseFloat(prompt('Вартість першого продукта', ''));
+      let firstProductQuantity = parseFloat(prompt('Кількість першого продукта', ''));
       let totalCostOfProductOne = firstProductCost * firstProductQuantity;
 
 
-      let secondProductCost = prompt('Вартість другого продукта', '');
-      let secondProductQuantity = prompt('Кількість другого продукта', '');
+      let secondProductCost = parseFloat(prompt('Вартість другого продукта', ''));
+      let secondProductQuantity = parseFloat(prompt('Кількість другого продукта', ''));
       let totalCostOfProductTwo = secondProductCost * secondProductQuantity;
 
 
-      let thirdProductCost = prompt('Вартість третього продукта', '');
-      let thirdProductQuantity = prompt('Кількість третього продукта', '');
+      let thirdProductCost = parseFloat(prompt('Вартість третього продукта', ''));
+      let thirdProductQuantity = parseFloat(prompt('Кількість третього продукта', ''));
       let totalCostOfProductThree = thirdProductCost * thirdProductQuantity;
       
 

@@ -9,14 +9,38 @@
 </head>
 
 <body>
+    <style>
+            p {
+                font-size: 24px;
+            }
+    </style>
     <h1>Задача #0</h1>
-    <p>Обчислити значення виразів <br>
-        S1=a+12+b
+    <p>Обчислити значення виразів <br> <br> </p>
+        <img src="../img/01.png" alt="">
+        <script>
 
-    </p>
-    <script>
-        document.write('В мене лапки :(')
-    </script>
+            let a = parseFloat(prompt('Введіть a', '0'))
+            let b = parseFloat(prompt('Введіть b', '0'))
+            let c = parseFloat(prompt('Введіть c', '0'))
+
+            let s1 = a + 12 + b
+            let s2 = Math.sqrt((a + b) / (a * 2))
+            let s3 = Math.cbrt((a + b) * c)
+            let s4 = Math.sin(a / (-b))
+
+            document.write(`
+			<p>S1 = ${s1}</p> 
+                <br>
+			<p>S2 = ${s2}</p> 
+                <br>
+			<p>S3 = ${s3}</p> 
+                <br>
+			<p>S4 = ${s4}</p> 
+                <br>
+		`)
+
+        </script>
+
 </body>
 
 </html>

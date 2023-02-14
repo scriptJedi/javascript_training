@@ -13,10 +13,10 @@
     <h1>Задача #1</h1>
     <p>Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці</p>
     <script>
-        const num1 = parseInt(prompt('Введіть перше число', 1));
-        const num2 = parseInt(prompt('Введіть друге число', 1));
+        const num1 = parseFloat(prompt('Введіть перше число', 1));
+        const num2 = parseFloat(prompt('Введіть друге число', 1));
         const sum = num1 + num2;
-        const multiplicationSum = num1 * num2;
+        const multiplication = num1 * num2;
         const divisionSum = (num1 / num2).toFixed(3);
         document.write(`
             <table>

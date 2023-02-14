@@ -15,11 +15,12 @@
         const price = parseFloat(prompt('Введіть вартість одиниці товару', 1000));
         const quantity = parseInt(prompt('Введіть кількість товару', 1));
         const sum = price * quantity;
-        const tax = parseFloat((sum * 0.05).toFixed(2));
+        const tax = parseFloat((sum * 0.05));
+        const fixedTax = tax.toFixed(2);
         const sumWithTax = sum + tax;
         document.write(`
             При ціні товару $${price} та кількості ${quantity} одиниці(ць). <br>
-            Ціна $${sum}, в т.ч. ПДВ: $${tax} <br>
+            Ціна $${sum}, в т.ч. ПДВ: $${fixedTax} <br>
             Разом: $${sumWithTax}
         `)
     </script>
