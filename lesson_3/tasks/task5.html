@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task #5</title>
+</head>
+
+<body>
+    <h1>Задача #5</h1>
+    <p>З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.</p>
+    <script>
+
+        let userDay = parseInt(prompt('Введіть номер дня тижня', 3));
+
+        const monday = 1;
+        const tuesday = 2;
+        const wednesday = 3;
+        const thursday = 4;
+        const friday = 5;
+        const saturday = 6;
+        const sunday = 7;
+
+        switch (userDay) {
+            case monday: document.write('Це понеділок')
+            break
+            case tuesday: document.write('Це вівторок')
+            break
+            case wednesday: document.write('Це середа')
+            break
+            case thursday: document.write('Це четвер')
+            break
+            case friday: document.write("Це п'ятниця")
+            break
+            case saturday: document.write('Це субота')
+            break
+            case sunday: document.write('Це неділя')
+            break
+        }
+    </script>
+</body>
+
+</html>

@@ -29,54 +29,55 @@ td {
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .wrapper {}
 
-.homework-one {}
+.homework-page {}
 
-.homework-one__label {
+.homework-page__label {
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
     justify-content: space-between;
 }
 
-.homework-one__title {
+.homework-page__title {
     letter-spacing: 3px;
     font-weight: 400;
 }
 
-.homework-one__go-away {
+.homework-page__go-away {
     text-decoration: none;
     text-transform: uppercase;
 }
 
-.homework-one__container {
+.homework-page__container {
     padding: 60px;
 }
 
-.homework-one__items {
+.homework-page__items {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 1fr);
-    grid-template-rows: 100px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 130px;
     row-gap: 40px;
 }
 
-.homework-one__item {
+.homework-page__item {
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
-    grid-template-rows: 1fr;
+    grid-template-columns: 100px 1fr 120px;
+    grid-template-rows: 120px;
     align-items: center;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 5px 10px;
     position: relative;
     transition: all 0.5s ease 0s;
+    overflow: hidden;
 }
 
-.homework-one__item:hover {
+.homework-page__item:hover {
     transform: scale(1.03);
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
 }
 
-.homework-one__link {
+.homework-page__link {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -84,7 +85,7 @@ td {
     left: 0;
 }
 
-.homework-one__uncomplete {
+.homework-page__uncomplete {
     background-color: #E94D35;
     height: 48px;
     width: 48px;
@@ -93,7 +94,7 @@ td {
     text-align: center;
 }
 
-.homework-one__complete {
+.homework-page__complete {
     background-color: #71e935;
     height: 48px;
     width: 48px;
@@ -102,23 +103,23 @@ td {
     text-align: center;
 }
 
-.homework-one__complete span {
-    font-size: 36px;
+.homework-page__complete span {
+    font-size: 40px;
 }
 
-.homework-one__uncomplete span {
-    font-size: 36px;
+.homework-page__uncomplete span {
+    font-size: 40px;
 }
 
 
-.homework-one__text {
+.homework-page__text {
     flex: 1 1 auto;
     padding: 0 10px;
 }
 
-.homework-one__image {}
+.homework-page__image {}
 
-.homework-one__image img {
+.homework-page__image img {
     width: 100%;
     height: 100%;
     object-fit: cover;

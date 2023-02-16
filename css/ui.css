@@ -1,5 +1,5 @@
-.homework-one__go-away,
-.homework-one__go-away::after {
+.homework-page__go-away,
+.homework-page__go-away::after {
     padding: 16px 20px;
     font-size: 18px;
     background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
@@ -13,7 +13,7 @@
     position: relative;
 }
 
-.homework-one__go-away::after {
+.homework-page__go-away::after {
     --slice-0: inset(50% 50% 50% 50%);
     --slice-1: inset(80% -6px 0 0);
     --slice-2: inset(50% -6px 30% 0);
@@ -33,7 +33,7 @@
     clip-path: var(--slice-0);
 }
 
-.homework-one__go-away:hover::after {
+.homework-page__go-away:hover::after {
     -webkit-animation: 1s glitch;
     animation: 1s glitch;
     -webkit-animation-timing-function: steps(2, end);
