@@ -20,12 +20,21 @@
         let amountOfMoney = parseInt(prompt('Введіть кількість ваших грошей', 20));
         const ticketPrice = 4;
 
+        // Залишок
+        const remainder = amountOfMoney - productPrice;
+        // Різниця
+        const difference = productPrice - amountOfMoney;
+
+        let result;
+
         if (productPrice < amountOfMoney)
-            document.write(`У вас ще залишились гроші, придбайте лотерейні квитки за ціною ${ticketPrice} UAH`)
+            result = `У вас ще залишилось ${remainder} UAH, придбайте лотерейні квитки за ціною ${ticketPrice} UAH`;
         else if (productPrice === amountOfMoney)
-            document.write('Пошукайте ще 4 грн та придбайте лотерейний квиток за вигідною ціною')
+            result = `Пошукайте ще ${ticketPrice} грн та придбайте лотерейний квиток за вигідною ціною`;
         else
-            document.write('У покупці відказано')
+            result = `У вас не вистачає ${difference} UAH`;
+
+        document.write(result);
 
     </script>
 </body>

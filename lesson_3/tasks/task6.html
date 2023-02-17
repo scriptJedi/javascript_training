@@ -15,18 +15,47 @@
     <script>
 
         let monthNum = parseInt(prompt('Введіть номер місяця', 4));
-
+        let season;
         if (monthNum >= 3 && monthNum <= 5)
-            document.write('Це весна')
+            season = 'Це весна';
         else if (monthNum >= 6 && monthNum <= 8)
-            document.write('Це літо')
+            season = 'Це літо';
         else if (monthNum >= 9 && monthNum <= 11)
-            document.write('Це осінь')
+            season = 'Це осінь';
         else if (monthNum <= 2 || monthNum === 12)
-            document.write('Це зима')
+            season = 'Це зима';
         else
-            document.write('Спробуйте ввести число від 1 до 12')
+            season = 'Спробуйте ввести число від 1 до 12';
 
+        document.write(`Варіант 1: ${season} <br>`)
+
+        //========================================================================================================================================================
+        // Другий варіант
+
+        let seasonVar2;
+
+        switch (monthNum) {
+            case 12:
+            case 1:
+            case 2: seasonVar2 = 'Це зима'
+                break;
+            case 3:
+            case 4:
+            case 5: seasonVar2 = 'Це весна'
+                break;
+            case 6:
+            case 7:
+            case 8: seasonVar2 = 'Це літо'
+                break;
+            case 9:
+            case 10:
+            case 11: seasonVar2 = 'Це осінь'
+                break;
+            default: seasonVar2 = 'Спробуйте ввести число від 1 до 12';
+                break;
+        }
+
+        document.write(` <br> Варіант 2: ${seasonVar2}`);
 
     </script>
 

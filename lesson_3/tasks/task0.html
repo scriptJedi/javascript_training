@@ -20,12 +20,16 @@
         let secondChildName = prompt("Введіть ім'я другої дитини");
         let candiesNumSecondChild = prompt("Скільки цукерок у другої дитини?")
 
+        let result;
+
         if (candiesNumFirstChild > candiesNumSecondChild)
-            document.write(`У ${firsChildName} цукерок більше`)
+            result = `У ${firsChildName} цукерок більше`;
         else if (candiesNumFirstChild < candiesNumSecondChild)
-            document.write(`У ${secondChildName} цукерок більше`)
+            result = `У ${secondChildName} цукерок більше`;
         else if (candiesNumFirstChild === candiesNumSecondChild)
-            document.write(`Кількість цукерок однакова`)
+            result = `Кількість цукерок у ${firsChildName} та у ${secondChildName} однакова`;
+
+        document.write(result);
 
     </script>
 </body>

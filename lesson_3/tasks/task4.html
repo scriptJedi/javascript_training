@@ -22,15 +22,18 @@
         const car = 'B';
         const truck = 'C';
 
+        let result;
+
         if (correctCategoryDriver === motorcycle)
-            document.write('Ви можете керувати мотоциклом.')
+            result = 'Ви можете керувати мотоциклом.';
         else if (correctCategoryDriver === car)
-            document.write('Ви можете керувати автомобілем.')
+            result = 'Ви можете керувати автомобілем.';
         else if (correctCategoryDriver === truck)
-            document.write('Ви можете керувати вантажівкою.')
+            result = 'Ви можете керувати вантажівкою.';
         else
-            document.write('Ви ввели не коректні данні, перезавантажте сторінку та спробуйте ще раз, або дочекайтесь доки ми дійдемо до циклів')
-            
+            result = 'Ви ввели не коректні данні, перезавантажте сторінку та спробуйте ще раз, або дочекайтесь доки ми дійдемо до циклів';
+
+        document.write(result);
     </script>
 </body>
 

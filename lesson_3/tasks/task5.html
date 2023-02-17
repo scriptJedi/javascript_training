@@ -13,7 +13,7 @@
     <p>З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.</p>
     <script>
 
-        let userDay = parseInt(prompt('Введіть номер дня тижня', 3));
+        const userDay = parseInt(prompt('Введіть номер дня тижня', 3));
 
         const monday = 1;
         const tuesday = 2;
@@ -23,22 +23,26 @@
         const saturday = 6;
         const sunday = 7;
 
+        let result;
+
         switch (userDay) {
-            case monday: document.write('Це понеділок')
-            break
-            case tuesday: document.write('Це вівторок')
-            break
-            case wednesday: document.write('Це середа')
-            break
-            case thursday: document.write('Це четвер')
-            break
-            case friday: document.write("Це п'ятниця")
-            break
-            case saturday: document.write('Це субота')
-            break
-            case sunday: document.write('Це неділя')
-            break
+            case monday: result = 'Це понеділок';
+                break
+            case tuesday: result = 'Це вівторок';
+                break
+            case wednesday: result = 'Це середа';
+                break
+            case thursday: result = 'Це четвер';
+                break
+            case friday: result = "Це п'ятниця";
+                break
+            case saturday: result = 'Це субота';
+                break
+            case sunday: result = 'Це неділя';
+                break
         }
+
+        document.write(result);
     </script>
 </body>
 

@@ -23,21 +23,24 @@
         const pensionerAge = 100;
         const superPensionerAge = 149;
 
-        if (yearsOld <= 0 || yearsOld >= 150 || isNaN(yearsOld))
-            document.write('Данні ведені не коректно, спробуйте ще раз')
-        else if (yearsOld <= babyAge)
-            document.write('Ви дитина у садочку')
-        else if (yearsOld <= schoolboyAge)
-            document.write('Ви школяр')
-        else if (yearsOld <= studentAge)
-            document.write('Ви студент')
-        else if (yearsOld <= workerAge)
-            document.write('Ви працівник')
-        else if (yearsOld <= pensionerAge)
-            document.write('Ви пенсіонер')
-        else
-            document.write('Дай Боже вам здоровля')
+        let result;
 
+        if (yearsOld <= 0 || yearsOld >= 150 || isNaN(yearsOld))
+            result = 'Данні ведені не коректно, спробуйте ще раз';
+        else if (yearsOld <= babyAge)
+            result = 'Ви дитина у садочку';
+        else if (yearsOld <= schoolboyAge)
+            result = 'Ви школяр';
+        else if (yearsOld <= studentAge)
+            result = 'Ви студент';
+        else if (yearsOld <= workerAge)
+            result = 'Ви працівник'
+        else if (yearsOld <= pensionerAge)
+            result = 'Ви пенсіонер';
+        else
+            result = 'Дай Боже вам здоровля';
+
+        document.write(result)
     </script>
 </body>
 
