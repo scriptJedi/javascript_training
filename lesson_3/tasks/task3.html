@@ -16,26 +16,26 @@
 
         let yearsOld = parseInt(prompt('Скільки вам років?', 74));
 
-        const baby = 6;
-        const schoolboy = 17;
-        const student = 22;
-        const worker = 65;
-        const pensioner = 100;
-        const superPensioner = 149;
+        const babyAge = 6;
+        const schoolboyAge = 17;
+        const studentAge = 23;
+        const workerAge = 65;
+        const pensionerAge = 100;
+        const superPensionerAge = 149;
 
         if (yearsOld <= 0 || yearsOld >= 150)
             document.write('Данні ведені не коректно, спробуйте ще раз')
-        else if (yearsOld <= baby)
+        else if (yearsOld <= babyAge)
             document.write('Ви дитина у садочку')
-        else if (yearsOld <= schoolboy)
+        else if (yearsOld <= schoolboyAge)
             document.write('Ви школяр')
-        else if (yearsOld <= student)
+        else if (yearsOld <= studentAge)
             document.write('Ви студент')
-        else if (yearsOld <= worker)
+        else if (yearsOld <= workerAge)
             document.write('Ви працівник')
-        else if (yearsOld <= pensioner)
+        else if (yearsOld <= pensionerAge)
             document.write('Ви пенсіонер')
-        else if (yearsOld <= superPensioner)
+        else
             document.write('Дай Боже вам здоровля')
 
     </script>
