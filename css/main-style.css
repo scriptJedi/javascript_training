@@ -2,6 +2,7 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 @import url(https://fonts.googleapis.com/css?family=Bai+Jamjuree:regular,600,700&display=swap);
+
 body {
     font-family: 'Bai Jamjuree';
     color: #161513;
@@ -106,6 +107,7 @@ body {
 .homework__text {
     font-size: 24px;
 }
+
 .homework__text span {
     color: #E94D35;
     font-weight: 500;

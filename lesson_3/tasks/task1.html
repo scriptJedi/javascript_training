@@ -20,11 +20,13 @@
         let amountOfMoney = parseInt(prompt('Введіть кількість ваших грошей', 20));
         const ticketPrice = 4;
 
-        if (productPrice<=amountOfMoney) {
+        if (productPrice < amountOfMoney)
             document.write(`У вас ще залишились гроші, придбайте лотерейні квитки за ціною ${ticketPrice} UAH`)
-        } else {
+        else if (productPrice === amountOfMoney)
+            document.write('Пошукайте ще 4 грн та придбайте лотерейний квиток за вигідною ціною')
+        else
             document.write('У покупці відказано')
-        }
+
     </script>
 </body>
 

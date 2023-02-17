@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Bai+Jamjuree:regular,600,700&display=swap);
+
+body {
+    font-family: 'Bai Jamjuree';
+    color: #161513;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+/*=============*/
+
+.wrapper {}
+
+.main {
+}
+
+.main__container {
+    padding: 20px 50px;
+}
+
+.main__header {}
+
+.main__title {
+    margin-top: 50px;
+    font-size: 46px;
+}
+
+.main__actions {}
+
+.main__body {
+    margin-top: 50px;
+}
+
+.main__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;
+    gap: 50px;
+}
+
+.main__item {
+    padding: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.5s ease 0s;
+    background-color: #fff;
+}
+
+.main__item:hover {
+    transform: scale(1.03);
+}
+
+.item-main {
+    position: relative;
+}
+
+.item-main__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.item-main__img {}
+
+.item-main__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-main__text {
+    text-align: center;
+}
+
+.item-main__title {
+    display: inline-block;
+    margin-top: 5px;
+    background-color: #E94D35;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.item-main__descr {
+    margin-top: 15px;
+    color: #161513;
+    text-decoration: none;
+}
