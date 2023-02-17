@@ -23,7 +23,7 @@
         const pensionerAge = 100;
         const superPensionerAge = 149;
 
-        if (yearsOld <= 0 || yearsOld >= 150)
+        if (yearsOld <= 0 || yearsOld >= 150 || isNaN(yearsOld))
             document.write('Данні ведені не коректно, спробуйте ще раз')
         else if (yearsOld <= babyAge)
             document.write('Ви дитина у садочку')
