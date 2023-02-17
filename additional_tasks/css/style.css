@@ -43,7 +43,7 @@ body {
 .main__items {
     display: grid;
     grid-template-columns: repeat(auto-fit, 300px);
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(3, 320px);
     justify-content: center;
     gap: 50px;
 }
@@ -95,7 +95,11 @@ body {
 }
 
 .item-main__descr {
+    font-size: 14px;
     margin-top: 15px;
     color: #161513;
     text-decoration: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }

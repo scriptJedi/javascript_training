@@ -20,8 +20,12 @@
         const schoolboy = 17;
         const student = 22;
         const worker = 65;
+        const pensioner = 100;
+        const superPensioner = 149;
 
-        if (yearsOld <= baby)
+        if (yearsOld <= 0 || yearsOld >= 150)
+            document.write('Данні ведені не коректно, спробуйте ще раз')
+        else if (yearsOld <= baby)
             document.write('Ви дитина у садочку')
         else if (yearsOld <= schoolboy)
             document.write('Ви школяр')
@@ -29,9 +33,10 @@
             document.write('Ви студент')
         else if (yearsOld <= worker)
             document.write('Ви працівник')
-        else
+        else if (yearsOld <= pensioner)
             document.write('Ви пенсіонер')
-
+        else if (yearsOld <= superPensioner)
+            document.write('Дай Боже вам здоровля')
 
     </script>
 </body>
