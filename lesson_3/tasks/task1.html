@@ -24,12 +24,16 @@
         const remainder = amountOfMoney - productPrice;
         // Різниця
         const difference = productPrice - amountOfMoney;
+        // Нестача
+        const lack = ticketPrice - remainder;
 
         let result;
 
-        if (productPrice < amountOfMoney)
+        if (productPrice < amountOfMoney) {
             result = `У вас ще залишилось ${remainder} UAH, придбайте лотерейні квитки за ціною ${ticketPrice} UAH`;
-        else if (productPrice === amountOfMoney)
+            if (ticketPrice > remainder)
+                result = `Додайте ще ${lack}UAH і придбайте лотерейний квиток за ${ticketPrice}UAH`
+        } else if (productPrice === amountOfMoney)
             result = `Пошукайте ще ${ticketPrice} грн та придбайте лотерейний квиток за вигідною ціною`;
         else
             result = `У вас не вистачає ${difference} UAH`;
