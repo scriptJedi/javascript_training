@@ -6,43 +6,125 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="additional_tasks/css/style.css">
     <link rel="stylesheet" href="css/main-style.css">
     <title>Homework</title>
 </head>
 
 <body>
-    <main>
-        <div class="wrapper">
-            <section class="homework">
-                <div class="homework__container">
-                    <div class="homework__title title">Homework</div>
-                    <div class="homework__items">
-                        <div class="homework__item">
-                            <a href="lesson_2/index.html" class="homework__link"></a>
-                            <div class="homework__article-name">Lesson #2</div>
-                            <div class="homework__info">
-                                <div class="homework__date">9 Feb 2022</div>
-                                <span class="homework__separator">|</span>
-                                <div class="homework__category">Data Type</div>
+    <div class="wrapper">
+        <!--========== HEADER ==========-->
+        <header class="header">
+            <div class="header__container">
+                <img src="additional_tasks/img/02.png" alt="" class="header__img">
+
+                <a href="#" class="header__logo">Oleksandr Biriukov</a>
+
+                <div class="header__toggle">
+                    <i class='bx bx-menu' id="header-toggle"></i>
+                </div>
+            </div>
+        </header>
+
+        <!--========== NAV ==========-->
+        <div class="nav" id="navbar">
+            <nav class="nav__container">
+                <div>
+                    <a href="../index.html" class="nav__link nav__logo">
+                        <i class='bx bxs-disc nav__icon'></i>
+                        <span class="nav__logo-name">Rose069</span>
+                    </a>
+
+                    <div class="nav__list">
+                        <div class="nav__items">
+                            <h3 class="nav__subtitle">Profile</h3>
+
+                            <a href="../index.html" class="nav__link active">
+                                <i class='bx bx-home nav__icon'></i>
+                                <span class="nav__name">Home</span>
+                            </a>
+
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-user nav__icon'></i>
+                                    <span class="nav__name">Navigate</span>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="lesson_2/index.html" class="nav__dropdown-item">Lesson #2</a>
+                                        <a href="lesson_3/index.html" class="nav__dropdown-item">Lesson #3</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="homework__text text">Тип даних <span>Number</span>.</div>
+                            <a href="additional_tasks/index.html" class="nav__link">
+                                <i class='bx bx-compass nav__icon'></i>
+                                <span class="nav__name">Additional tasks</span>
+                            </a>
                         </div>
-                        <div class="homework__item">
-                            <a href="lesson_3/index.html" class="homework__link"></a>
-                            <div class="homework__article-name">Lesson #3</div>
-                            <div class="homework__info">
-                                <div class="homework__date">14 Feb 2022</div>
-                                <span class="homework__separator">|</span>
-                                <div class="homework__category">Conditional (ternary) operator</div>
-                            </div>
-                            <div class="homework__text text">Умовні оператори <span>if else</span>.</div>
+
+                        <div class="nav__items">
                         </div>
                     </div>
                 </div>
-            </section>
+                <a href="../index.html" class="nav__link nav__logout">
+                    <i class='bx bx-log-out nav__icon'></i>
+                    <span class="nav__name">Back</span>
+                </a>
+            </nav>
         </div>
-    </main>
+
+        <!--========== CONTENTS ==========-->
+        <main>
+            <div class="wrapper">
+                <section class="homework">
+                    <div class="homework__container">
+                        <div class="homework__label">
+                            <div class="homework__title title">Homework</div>
+                            <a class="homework-label-link" href="additional_tasks/index.html">
+                                <button class="cssbuttons-io-button"> Additional tasks
+                                    <div class="icon">
+                                        <svg height="24" width="24" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 0h24v24H0z" fill="none"></path>
+                                            <path
+                                                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </a>
+                        </div>
+                        <div class="homework__items">
+                            <div class="homework__item">
+                                <a href="lesson_2/index.html" class="homework__link"></a>
+                                <div class="homework__article-name">Lesson #2</div>
+                                <div class="homework__info">
+                                    <div class="homework__date">9 Feb 2022</div>
+                                    <span class="homework__separator">|</span>
+                                    <div class="homework__category">Data Type</div>
+                                </div>
+                                <div class="homework__text text">Тип даних <span>Number</span>.</div>
+                            </div>
+                            <div class="homework__item">
+                                <a href="lesson_3/index.html" class="homework__link"></a>
+                                <div class="homework__article-name">Lesson #3</div>
+                                <div class="homework__info">
+                                    <div class="homework__date">14 Feb 2022</div>
+                                    <span class="homework__separator">|</span>
+                                    <div class="homework__category">Conditional (ternary) operator</div>
+                                </div>
+                                <div class="homework__text text">Умовні оператори <span>if else</span>.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>
