@@ -13,6 +13,23 @@
     <p>Скласти алгоритм, який обчислює цілу і дробову частину даного числа х. Наприклад: число 23,56 => ціла: 23,
         дробова:
         0,56.</p>
+
+        <script>
+
+            let x = parseFloat(prompt('Введіть будь яке дробове число', 23.56));
+
+            let fraction = (x - Math.floor(x)).toFixed(2);
+            
+            let int = Math.floor(x);
+
+            document.write(`
+                Число: ${x} <br>
+                Ціла частина: ${int} <br>
+                Дробова частина: ${fraction}
+            `)
+
+
+        </script>
 </body>
 
 </html>
