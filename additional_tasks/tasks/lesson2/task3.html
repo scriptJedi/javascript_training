@@ -13,6 +13,31 @@
     <p>З клавіатури вводиться вік дитини. Вивести на екран через скільки років вона буде відвідувати садочок, піде у
         школу,
         закінчить школу, вступить і закінчить</p>
+
+    <script>
+
+        let childYears = parseInt(prompt('Введіть вік дитини'));
+
+        const kindergarten = 3;
+        const school = 6;
+        const endSchool = 17;
+        const university = 17;
+        const endUniversity = 23;
+
+        const toKindergarten = kindergarten - childYears;
+        const toSchool = school - childYears;
+        const fromSchool = endSchool - childYears;
+        const toUniversity = university - childYears;
+        const fromUniversity = endUniversity - childYears;
+
+        document.write(`
+        Дитинка піде у садочок через ${toKindergarten} років <br>
+        До школи через ${toSchool} років та закінчить її через ${fromSchool}<br>
+        До університету через ${toUniversity} років та закінчить його через ${fromUniversity}
+        
+        `)
+
+    </script>
 </body>
 
 </html>

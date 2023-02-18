@@ -10,5 +10,16 @@
     <h1>Задача 0</h1>
     <p>Дано ширину екрана та кількість елементів, які повинні бути відображені у рядку. Визначити ширину елементів, які повинні
     бути відображені у цьому рядку.</p>
+
+    <script>
+
+        let screenWidth = parseInt(prompt('Введіть ширину екрану'));
+        let numOfElements = parseInt(prompt('Введіть кількість елементів'));
+
+        const elementWidth = screenWidth / numOfElements;
+
+        document.write(`Ширина елемента: ${elementWidth}px`);
+
+    </script>
 </body>
 </html>
