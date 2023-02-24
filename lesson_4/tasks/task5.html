@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #5</title>
+</head>
+
+<body>
+    <style>
+        table {
+            display: inline-block;
+            margin-right: 60px;
+        }
+    </style>
+    <h1>Задача #5</h1>
+    <p>Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком.</p>
+
+    <script>
+
+        let counter = 1;
+        for (let i = 1; i <= 3; i++) {
+            document.write("<table>");
+            for (let q = 1; q <= 3; q++) {
+                document.write("<tr>");
+                for (let j = 1; j <= 3; j++) {
+                    document.write(`<td>${counter}</td>`);
+                    counter++;
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+
+
+    </script>
+</body>
+
+</html>

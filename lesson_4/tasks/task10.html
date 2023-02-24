@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #10</title>
+</head>
+
+<body>
+    <h1>Задача #10</h1>
+    <p>Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.</p>
+
+    <script>
+
+        let minNum = parseInt(prompt('Введіть початкове число проміжку', 1));
+        let maxNum = parseInt(prompt('Введіть кінцеве число проміжку', 10));
+
+        let counter = 0;
+        let sum = 0;
+        let currentNum = minNum;
+
+        for (; (currentNum < maxNum) && (counter < 5); counter++) {
+            if (currentNum % 2 !== 0) {
+                sum += currentNum;
+            }
+            currentNum++;
+        }
+        document.write(`Мінімальне число: ${minNum} <br>`);
+        document.write(`Максимальне число: ${maxNum}<br>`);
+        document.write(`Сумма непарних чисел: ${sum}`);
+
+
+    </script>
+</body>
+
+</html>

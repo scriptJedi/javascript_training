@@ -19,8 +19,42 @@
 
     <script>
 
+        const userNum = parseInt(prompt('Введіть число від 1 до 100'));
+
+        const minNum = 1;
+        const maxNum = 100;
+
+        // Определяем минимальное и максимальное значение
+        const rndNum1 = Math.floor(Math.random() * (maxNum + minNum));
+        const rndNum2 = Math.floor(Math.random() * (maxNum + minNum));
+
+        let minInterval;
+        let maxInterval;
+
+        if (rndNum1 > rndNum2) {
+            maxInterval = rndNum1;
+            minInterval = rndNum2;
+        } else {
+            maxInterval = rndNum2;
+            minInterval = rndNum1;
+        }
 
 
+        let result;
+
+        if (userNum >= minInterval - 10 && userNum <= maxInterval + 10)
+            result = 'Ви виграли!';
+        else
+            result = 'Ви програли!';
+
+
+        document.write(`
+        ${result} <br>
+        Ваше число ${userNum} <br>
+        Інтервал від ${minInterval} до ${maxInterval}
+        `)
+
+        
     </script>
 </body>
 

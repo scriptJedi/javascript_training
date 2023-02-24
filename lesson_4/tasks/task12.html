@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #12</title>
+</head>
+
+<body>
+    <h1>Задача #12</h1>
+    <p>
+        Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів
+        користувач
+        намагається потопити корабель.
+    </p>
+
+    <script>
+
+        let n = 3;
+        let m = 3;
+        let k = parseInt(prompt('Введіть кількість снарядів', 10));
+
+        let positionShip = Math.floor(Math.random() * (n * m) + 1);
+        let result;
+
+        for (let i = 0; i < k; i++) {
+            let shoot = parseInt(prompt('Введіть номер клітинки для пострілу', 4));
+            if (shoot === positionShip) {
+                result = 'Ви попали! Руській воєнний корабль іде за вірним шляхом';
+                break;
+            } else {
+                alert('На жаль ви промахнулись, спробуйте ще раз');
+                continue;
+            }
+        }
+        document.write(result)
+
+    </script>
+</body>
+
+</html>

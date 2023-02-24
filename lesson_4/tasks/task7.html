@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #7</title>
+</head>
+
+<body>
+    <h1>Задача #7</h1>
+    <p>Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати confirm).</p>
+
+    <script>
+
+        let userNum = parseInt(prompt('Введіть число', 4));
+        let maxNum = parseInt(prompt('Введіть максимальне число', 100));
+        let minNum = parseInt(prompt('Введіть мінімальне число', 1));
+
+        let result;
+
+        for (let i = 0; i < 3; i++) {
+            let compNum = Math.floor(Math.random() * (maxNum + minNum));
+            if (compNum === userNum) {
+                alert(result);
+                result = 'Комп’ютер вгадав';
+                break;
+            } else {
+                let computerOption = confirm(`Комп’ютер думає що ваша цифра це ${compNum}`);
+                result = 'Комп’ютер не вгадав';
+                alert(result);
+            }
+        }
+        document.write(`${result}`)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #11</title>
+</head>
+
+<body>
+    <h1>Задача #11</h1>
+    <p>
+        Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з
+        чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три
+        других –
+        200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за
+        номером).
+    </p>
+
+    <script>
+
+        let image1 = Math.floor(1 + Math.random() * 4);
+        let image2 = Math.floor(1 + Math.random() * 4);
+        let image3 = Math.floor(1 + Math.random() * 4);
+        let imagesTemplate = '';
+
+        for (let i = 1; i < 4; i++) {
+            let indexImage;
+            switch (i) {
+                case 1:
+                    indexImage = image1;
+                    break;
+                case 2:
+                    indexImage = image2;
+                    break;
+                case 3:
+                    indexImage = image3;
+                    break;
+            }
+            imagesTemplate += `<img src="../img/${indexImage}.webp"></li>`;
+        }
+
+        let winnings = 0;
+        if (image1 === image2 && image1 === image3) {
+            switch (image1) {
+                case 1:
+                    winnings = `${100} грн`;
+                    break;
+                case 2:
+                    winnings = `${200} грн`;
+                    break;
+                case 3:
+                    winnings = `${500} грн`;
+                    break;
+                case 4:
+                    winnings = `${1000} грн`;
+                    break;
+            }
+        } else winnings = 0;
+
+        document.write(`${imagesTemplate} <br>`);
+        document.write(`Ваш виграш: ${winnings}`);
+
+
+    </script>
+
+</body>
+
+</html>

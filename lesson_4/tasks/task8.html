@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #8</title>
+</head>
+
+<body>
+    <h1>Задача #8</h1>
+    <p>Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).</p>
+
+    <script>
+
+        let minNum = parseInt(prompt('Введіть мінімальне число', 1));
+        let maxNum = parseInt(prompt('Введіть максимальне число', 10));
+
+        for (let i = 0; i < Infinity; i++) {
+            let compNum = Math.floor(Math.random() * (maxNum + minNum));
+            let compOption = confirm(`Комп'ютер загадав число: ${compNum} Це ваше число?`);
+            if (compOption === true) break;
+        }
+
+    </script>
+</body>
+
+</html>

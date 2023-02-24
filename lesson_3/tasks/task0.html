@@ -15,10 +15,10 @@
 
     <script>
         let firsChildName = prompt("Введіть ім'я першої дитини");
-        let candiesNumFirstChild = prompt("Скільки цукерок у першої дитини?")
+        let candiesNumFirstChild = prompt("Скільки цукерок у першої дитини?");
 
         let secondChildName = prompt("Введіть ім'я другої дитини");
-        let candiesNumSecondChild = prompt("Скільки цукерок у другої дитини?")
+        let candiesNumSecondChild = prompt("Скільки цукерок у другої дитини?");
 
         let result;
 
@@ -26,7 +26,7 @@
             result = `У ${firsChildName} цукерок більше`;
         else if (candiesNumFirstChild < candiesNumSecondChild)
             result = `У ${secondChildName} цукерок більше`;
-        else if (candiesNumFirstChild === candiesNumSecondChild)
+        else
             result = `Кількість цукерок у ${firsChildName} та у ${secondChildName} однакова`;
 
         document.write(result);

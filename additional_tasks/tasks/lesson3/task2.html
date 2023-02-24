@@ -18,8 +18,34 @@
 
     <script>
 
+        let firstUserNum = parseInt(prompt('Перший користувач, введіть число від 1 до 10', 4));
+        let secondUserNum = parseInt(prompt('Другий користувач, введіть число від 1 до 10', 8));
 
+        const minNum = 1;
+        const maxNum = 10;
+        let rndNum = Math.floor(Math.random() * (maxNum + minNum));
 
+        let differenceFirstUser = Math.abs(rndNum - firstUserNum);
+        let differenceSecondUser = Math.abs(rndNum - secondUserNum);
+
+        let result;
+
+        if ((firstUserNum && secondUserNum >= minNum) && (firstUserNum && secondUserNum <= maxNum)) {
+            if (firstUserNum !== secondUserNum) {
+                if (firstUserNum === rndNum || differenceFirstUser < differenceSecondUser)
+                    result = 'Перший гравець переміг';
+                else if (secondUserNum === rndNum || differenceFirstUser > differenceSecondUser)
+                    result = 'Другий гравець переміг';
+            }
+            else
+                result = 'Числа однакові';
+        } else
+            result = 'Помилка, введіть число від 1 до 10';
+
+        document.write(`${result} <br> 
+        число першого гравця ${firstUserNum} <br>
+        число другого гравця ${secondUserNum} <br>
+        рандомне число ${rndNum} `)
     </script>
 </body>
 

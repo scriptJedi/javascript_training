@@ -14,11 +14,47 @@
         1. Веселий <br>
         2. Сумний <br>
         3. Обурений <br>
-         Користувач вводить номер пункту меню і на екрані з’являється відповідне зображення
+        Користувач вводить номер пункту меню і на екрані з’являється відповідне зображення
         смайла.
     </p>
+    <canvas id="myCanvas" width="200" height="200" style="background-color:#eee; border:1px solid #ccc;"></canvas>
 
     <script>
+        let canvas = document.getElementById("myCanvas"),
+            context = canvas.getContext("2d");
+
+        let num = parseInt(prompt('Введіть цифру від 1 до 3 включно'));
+
+        let merrySmile = new Image();
+        merrySmile.src = '../../img/smile_1.png'
+        let sadSmile = new Image();
+        sadSmile.src = '../../img/smile_2.png'
+        let angrySmile = new Image();
+        angrySmile.src = '../../img/smile_3.png'
+
+        if (num === 1) {
+            merrySmile.onload = function () {
+                context.drawImage(merrySmile, 0, 0);
+            };
+        } else if (num === 2) {
+            sadSmile.onload = function () {
+                context.drawImage(sadSmile, 0, 0);
+            };
+        } else if (num === 3) {
+            angrySmile.onload = function () {
+                context.drawImage(angrySmile, 0, 0);
+            };
+        } else {
+            alert('Введен не коректний номер, спробуйте ще раз і введіть 1, 2 чи 3')
+        }
+
+
+
+    </script>
+
+
+    <script>
+
 
 
 
