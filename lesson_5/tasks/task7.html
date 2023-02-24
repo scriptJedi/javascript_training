@@ -16,7 +16,7 @@
     <script>
 
         let userNum = parseInt(prompt('Введіть число', 4));
-        let maxNum = parseInt(prompt('Введіть максимальне число', 100));
+        let maxNum = parseInt(prompt('Введіть максимальне число', 10));
         let minNum = parseInt(prompt('Введіть мінімальне число', 1));
 
         let result;
@@ -24,11 +24,12 @@
         for (let i = 0; i < 3; i++) {
             let compNum = Math.floor(Math.random() * (maxNum + minNum));
             if (compNum === userNum) {
-                alert(result);
+                alert(`Комп’ютер думає що ваша цифра це ${compNum}`);
                 result = 'Комп’ютер вгадав';
+                alert(result);
                 break;
             } else {
-                let computerOption = confirm(`Комп’ютер думає що ваша цифра це ${compNum}`);
+                alert(`Комп’ютер думає що ваша цифра це ${compNum}`);
                 result = 'Комп’ютер не вгадав';
                 alert(result);
             }
