@@ -26,7 +26,8 @@
         let result;
         alert(`Вам потрібно внести ${amountToDeposited} грн`);
 
-        for (; remainderAmount <= amountToDeposited;) {
+
+        do {
             moneyContribution = parseFloat(prompt('Введіть суму взносу'));
             remainderAmount += moneyContribution;
             if (remainderAmount >= amountToDeposited) {
@@ -34,6 +35,8 @@
                 break;
             } else result = `Щось пішло не так, спробуйте ще раз`;
         }
+        while (remainderAmount <= amountToDeposited);
+        
         document.write(`${result}`)
 
     </script>

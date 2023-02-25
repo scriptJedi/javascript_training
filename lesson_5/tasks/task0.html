@@ -21,15 +21,14 @@
     <script>
 
         let numOfRndNum = parseInt(prompt('Введіть кількість чисел', 5));
-        
+        document.write(`<ul>`);
         for (let i = 0; i < numOfRndNum; i++) {
             const minNum = 1;
             const maxNum = 100;
             let rndNum = Math.floor(Math.random() * (maxNum + minNum));
-            document.write(`<ul>`);
             document.write(`<li>${rndNum}</li>`);
-            document.write(`</ul>`);
         }
+        document.write(`</ul>`);
     </script>
 </body>
 

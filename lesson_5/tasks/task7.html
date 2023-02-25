@@ -24,12 +24,12 @@
         for (let i = 0; i < 3; i++) {
             let compNum = Math.floor(Math.random() * (maxNum + minNum));
             if (compNum === userNum) {
-                alert(`Комп’ютер думає що ваша цифра це ${compNum}`);
+                confirm(`Комп’ютер думає що ваша цифра це ${compNum}`);
                 result = 'Комп’ютер вгадав';
                 alert(result);
                 break;
             } else {
-                alert(`Комп’ютер думає що ваша цифра це ${compNum}`);
+                confirm(`Комп’ютер думає що ваша цифра це ${compNum}`);
                 result = 'Комп’ютер не вгадав';
                 alert(result);
             }

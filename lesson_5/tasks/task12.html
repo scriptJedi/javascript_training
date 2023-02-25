@@ -23,12 +23,14 @@
         let m = 3;
         let k = parseInt(prompt('Введіть кількість снарядів', 10));
 
-        let positionShip = Math.floor(Math.random() * (n * m) + 1);
+        let positionShipN = Math.floor(Math.random() * (n) + 1);
+        let positionShipM = Math.floor(Math.random() * (m) + 1);
         let result;
 
         for (let i = 0; i < k; i++) {
-            let shoot = parseInt(prompt('Введіть номер клітинки для пострілу', 4));
-            if (shoot === positionShip) {
+            let shootN = parseInt(prompt('Введіть номер клітинки по N для пострілу', 4));
+            let shootM = parseInt(prompt('Введіть номер клітинки по M для пострілу', 4));
+            if (shootN === positionShipN && shootM === positionShipM) {
                 result = 'Ви попали! Руській воєнний корабль іде за вірним шляхом';
                 break;
             } else {

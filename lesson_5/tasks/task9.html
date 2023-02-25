@@ -15,11 +15,9 @@
 
     <script>
 
-        let firstNum = parseInt(prompt('Введіть перше число', 1));
-        let secondNum = parseInt(prompt('Введіть друге число', 10));
+        let minNum = parseInt(prompt('Введіть початкове число інтервалу', 1));
+        let maxNum = parseInt(prompt('Введіть кінцеве число інтервалу', 10));
 
-        let minNum = firstNum < secondNum ? firstNum : secondNum;
-        let maxNum = firstNum > secondNum ? firstNum : secondNum;
         let counter = minNum;
         let sum = 0;
 
