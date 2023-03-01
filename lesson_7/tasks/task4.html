@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #4</title>
+</head>
+
+<body>
+    <h1>Задача #4</h1>
+    <p>
+        Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість
+        додатних, кількість більших за 100.
+    </p>
+
+    <script>
+
+        function swissKnife(num1, num2, num3) {
+            let pairingNum = 0;
+            let positiveNum = 0;
+            let greaterThan100 = 0;
+
+            if (num1 % 2 === 0) pairingNum++;
+            if (num2 % 2 === 0) pairingNum++;
+            if (num3 % 2 === 0) pairingNum++;
+
+            if (num1 > 0) positiveNum++;
+            if (num2 > 0) positiveNum++;
+            if (num3 > 0) positiveNum++;
+
+            if (num1 > 100) greaterThan100++;
+            if (num2 > 100) greaterThan100++;
+            if (num3 > 100) greaterThan100++;
+
+            return `Кількість парних чисел ${pairingNum}; <br> Кількість числ більше 0 = ${positiveNum}; <br> Кількість числ більше за 100 = ${greaterThan100}`;
+        }
+
+        let userNumOne = parseInt(prompt('Введіть перше число'))
+        let userNumSecond = parseInt(prompt('Введіть друге число'))
+        let userNumThird = parseInt(prompt('Введіть третє число'))
+
+
+        let result = swissKnife(userNumOne, userNumSecond, userNumThird);
+
+        document.write(result);
+    </script>
+</body>
+
+</html>

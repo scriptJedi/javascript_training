@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #2</title>
+</head>
+
+<body>
+    <h1>Задача #2</h1>
+    <p>
+        Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+    </p>
+
+    <script>
+
+
+        const userInput = parseInt(prompt('Вкажіть номер дня від 1 до 7'));
+
+        function getWeekendOrWorkday(num) {
+            switch (userInput) {
+                case 1: return 'Робочий';
+                case 2: return 'Робочий';
+                case 3: return 'Робочий';
+                case 4: return 'Робочий';
+                case 5: return 'Робочий';
+                case 6: return 'Вихідний';
+                case 7: return 'Вихідний';
+                default: return 'Введено некоректні данні, спробуйте ще раз';
+            }
+        }
+
+        document.write(`День під номер ${userInput} це ${getWeekendOrWorkday(userInput)}`)
+
+
+    </script>
+</body>
+
+</html>

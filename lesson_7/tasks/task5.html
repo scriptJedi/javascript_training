@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #5</title>
+</head>
+
+<body>
+    <h1>Задача #5</h1>
+    <p>
+
+        Створити окремі функції, які переводять: <br>
+        Сантиметри у дюйми; <br>
+        Кілограми у фунти; <br>
+        Кілометри у милі.
+
+
+    </p>
+
+    <script>
+
+        const userCentimeter = parseFloat(prompt('Введіть значення у сантиметрах'));
+        const userKilograms = parseFloat(prompt('Введіть значення у кілограмах'));
+        const userKilometers = parseFloat(prompt('Введіть значення у кілометрах'));
+
+        function getInches(centimeter) {
+            return centimeter * 0.3937;
+        }
+        function getPound(kilograms) {
+            return kilograms * 2.20462262;
+        }
+        function getMiles(kilometers) {
+            return kilometers * 0.621371192;
+        }
+
+
+        const inches = getInches(userCentimeter).toFixed(3);
+        document.write(`${userCentimeter} см у дюймах = ${inches} дюйми <br>`);
+        
+        const pound = getPound(userKilograms).toFixed(3);
+        document.write(`${userKilograms} кг у фунтах = ${pound} фунти <br>`);
+        
+        const miles = getMiles(userKilometers).toFixed(3);
+        document.write(`${userKilometers} км у милях = ${miles} миль`)
+
+
+    </script>
+</body>
+
+</html>

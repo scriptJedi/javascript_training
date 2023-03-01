@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #3</title>
+</head>
+
+<body>
+    <h1>Задача #3</h1>
+    <p>
+        Створити окремі функції, які для 4 чисел знаходять: <br>
+        1) суму; <br>
+        2) добуток; <br>
+        3) середнє арифметичне; <br>
+        4) мінімальне значення.
+
+
+    </p>
+
+    <script>
+
+
+        function getSum(a, b, c, d) {
+            return a + b + c + d;
+        }
+
+        function getMultiplication(a, b, c, d) {
+            return a * b * c * d;
+        }
+
+        function getAverageNum(a, b, c, d) {
+            return (a + b + c + d) / 4;
+        }
+
+        function getMinNum(a, b, c, d) {
+            let minNum = a;
+            if (b < minNum) minNum = b;
+            if (c < minNum) minNum = c;
+            if (d < minNum) minNum = d;
+            return minNum;
+        }
+
+        const num1 = parseInt(prompt('Введіть перше число'));
+        const num2 = parseInt(prompt('Введіть друге число'));
+        const num3 = parseInt(prompt('Введіть третє число'));
+        const num4 = parseInt(prompt('Введіть четверте число'));
+
+        let totalSum = getSum(num1, num2, num3, num4);
+        let multiplicationSum = getMultiplication(num1, num2, num3, num4);
+        let averageNum = getAverageNum(num1, num2, num3, num4);
+        let minNum = getMinNum(num1, num2, num3, num4);
+
+
+        document.write(`Сумма чисел: ${num1}, ${num2}, ${num3}, ${num4} становить = ${totalSum} <br>`);
+        document.write(`Добуток чисел: ${num1}, ${num2}, ${num3}, ${num4} становить = ${multiplicationSum} <br>`);
+        document.write(`Середнє арифметичне серед чисел: ${num1}, ${num2}, ${num3}, ${num4} становить = ${averageNum} <br>`);
+        document.write(`Мінімальне число серед: ${num1}, ${num2}, ${num3}, ${num4} становить = ${minNum}`)
+    </script>
+</body>
+
+</html>

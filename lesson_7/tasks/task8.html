@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #8</title>
+</head>
+
+<body>
+    <h1>Задача #8</h1>
+    <p>
+        Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди переходимо
+        при
+        кліку на зображення (тег img повине знаходитись у середині тега a: a> img src=”шлях”> a>
+    </p>
+
+    <script>
+
+
+        let userImage = parseInt(prompt('Введіть номер зображення від 1 до 4', 2));
+        let userTitle = prompt('Введіть заголовок', 'Заголовок');
+        let userLink = prompt('Введіть адресу сайта на який хочете зробити посилання', 'https://www.google.com');
+
+        function getImage(img, title, link) {
+            return document.write(`
+                <h1>${title}</h1>
+                <a href="${link}"><img src="../img/${img}.webp"></a>
+            `);
+        }
+
+        getImage(userImage, userTitle, userLink);
+
+
+
+    </script>
+
+</body>
+
+</html>
