@@ -22,25 +22,17 @@
             let pairingNum = 0;
             let positiveNum = 0;
             let greaterThan100 = 0;
-
-            if (num1 % 2 === 0) pairingNum++;
-            if (num2 % 2 === 0) pairingNum++;
-            if (num3 % 2 === 0) pairingNum++;
-
-            if (num1 > 0) positiveNum++;
-            if (num2 > 0) positiveNum++;
-            if (num3 > 0) positiveNum++;
-
-            if (num1 > 100) greaterThan100++;
-            if (num2 > 100) greaterThan100++;
-            if (num3 > 100) greaterThan100++;
-
+            for (let i = 0; i < arguments.length; i++) {
+                if (arguments[i] % 2 === 0) pairingNum++;
+                if (arguments[i] > 0) positiveNum++;
+                if (arguments[i] > 100) greaterThan100++;
+            }
             return `Кількість парних чисел ${pairingNum}; <br> Кількість числ більше 0 = ${positiveNum}; <br> Кількість числ більше за 100 = ${greaterThan100}`;
         }
 
-        let userNumOne = parseInt(prompt('Введіть перше число'))
-        let userNumSecond = parseInt(prompt('Введіть друге число'))
-        let userNumThird = parseInt(prompt('Введіть третє число'))
+        let userNumOne = parseInt(prompt('Введіть перше число'));
+        let userNumSecond = parseInt(prompt('Введіть друге число'));
+        let userNumThird = parseInt(prompt('Введіть третє число'));
 
 
         let result = swissKnife(userNumOne, userNumSecond, userNumThird);
