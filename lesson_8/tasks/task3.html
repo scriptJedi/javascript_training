@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #3</title>
+</head>
+
+<body>
+    <h1>Задача #3</h1>
+    <p>
+        Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які : <br>
+        • починаються на букву «А»; <br>
+        • перша і остання літери співпадають; <br>
+        • складаються з більше ніш 5 символів;
+    </p>
+
+    <script>
+
+        let vehicleLicense = ['AA3411ZA', 'AX2934JA', 'AH9233OP', 'AP9823OI', 'KA3564AA'];
+
+        document.write(`Масив номерів: ${vehicleLicense}<br>`)
+
+        // • починаються на букву «А»;
+
+        let aCounter = 0;
+        for (let i = 0; i < vehicleLicense.length; i++) {
+            if (vehicleLicense[i][0] === 'A') aCounter++;
+        }
+
+        document.write(`<br>Кількість номерів починаються на літеру 'А': ${aCounter} <br>`);
+
+        // • перша і остання літери співпадають;
+
+        let matchesSymbolsCounter = 0;
+        for (let i = 0; i < vehicleLicense.length; i++) {
+            if (vehicleLicense[i][0] === vehicleLicense[i][7])
+                matchesSymbolsCounter++;
+        }
+
+        document.write(`Кількість номер де перша і остання літери співпадають: ${matchesSymbolsCounter} <br>`);
+
+
+        // • складаються з більше ніш 5 символів
+        let moreThen5Counter = 0;
+        for (let i = 0; i < vehicleLicense.length; i++) {
+            if (vehicleLicense[i].length > 5) moreThen5Counter++;
+        }
+
+        document.write(`Кількість номер які складаються з більше ніж 5 символів: ${moreThen5Counter}`);
+
+    </script>
+</body>
+
+</html>

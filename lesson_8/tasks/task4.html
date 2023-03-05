@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #4</title>
+</head>
+
+<body>
+    <h1>Задача #4</h1>
+    <p>
+        Дано послідовність оцінок учня. Підрахувати кількість: <br>
+        1) двійок <br>
+        2) кількість хороших оцінок (добре, відмінно); <br>
+        3) кількість оцінок, які нижче середнього.
+    </p>
+
+    <script>
+
+        let pupilGrades = [5, 4, 5, 3, 5, 2, 2, 5, 4, 3];
+
+        document.write(`Дано оцінки учня: ${pupilGrades}<br>`);
+
+
+
+        // Кількість двійок
+
+        let countOfTwo = 0;
+        for (let i = 0; i < pupilGrades.length; i++) {
+            if (pupilGrades[i] === 2) countOfTwo++;
+        }
+
+        document.write(`<br>Кількість двійок: ${countOfTwo}<br>`);
+
+
+
+        // Кількість хороших оцінок (добре, відмінно)
+
+        let counterGoodGrades = 0;
+        for (let i = 0; i < pupilGrades.length; i++) {
+            if (pupilGrades[i] === 5 || pupilGrades[i] === 4) counterGoodGrades++;
+        }
+
+        document.write(`Кількість хороших оцінок (добре, відмінно): ${counterGoodGrades}<br>`);
+
+
+
+        // Кількість оцінок, які нижче середнього.
+
+        let counterGradesBelowAverage = 0;
+        for (let i = 0; i < pupilGrades.length; i++) {
+            if (pupilGrades[i] <= 3) counterGradesBelowAverage++;
+        }
+
+
+        document.write(`Кількість оцінок, які нижче середнього: ${counterGradesBelowAverage}`);
+
+    </script>
+</body>
+
+</html>

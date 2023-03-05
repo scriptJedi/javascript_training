@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #2</title>
+</head>
+
+<body>
+    <h1>Задача #2</h1>
+    <p>
+        Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».
+    </p>
+
+    <script>
+
+        let numberOfStudents = ['Олена', 'Владислав', 'Олександр', 'Іван', 'Максим', 'Катерина', 'Іван', 'Тарас', 'Іван', 'Дарина'];
+
+        let ivanCounter = 0;
+        for (let i = 0; i < numberOfStudents.length; i++) {
+            if (numberOfStudents[i] === 'Іван') ivanCounter++;
+        }
+
+        document.write(`Клас складається з  ${numberOfStudents}<br>`)
+        document.write(`Ім'я Іван зустрілось ${ivanCounter} разів`)
+
+
+    </script>
+</body>
+
+</html>

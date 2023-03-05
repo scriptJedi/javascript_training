@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #6</title>
+</head>
+
+<body>
+    <h1>Задача #6</h1>
+    <p>
+        Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за: <br>
+        за весь рік;<br>
+        у першій половині року;<br>
+        у другій половині року;<br>
+        за літо;<br>
+        за ІІ квартал;<br>
+        за парні місяці (з парними номерами);<br>
+        за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+    </p>
+
+    <script>
+
+        const totalPayments = [40, 104, 532, 500, 30, 990, 342, 432, 912, 30, 332, 984];
+
+        // const totalPayments = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
+        function getPaymentsForThePeriod(payment, startPeriod, endPeriod) {
+            let sum = 0;
+            for (let i = startPeriod - 1; i < endPeriod; i++) {
+                sum += totalPayments[i];
+            }
+            return sum;
+        }
+
+        //за весь рік
+
+        const paymentsForTheYear = getPaymentsForThePeriod(totalPayments, 1, 12);
+        document.write(`Сума платежів за рік складає: ${paymentsForTheYear} UAH <br>`);
+
+        // у першій половині року
+
+        let paymentsForHalfTheYear = getPaymentsForThePeriod(totalPayments, 1, 6);
+        document.write(`Сума платежів за перше півріччя складає: ${paymentsForHalfTheYear} UAH <br>`);
+
+
+        //у другій половині року
+
+        paymentsForHalfTheYear = getPaymentsForThePeriod(totalPayments, 7, 12);
+        document.write(`Сума платежів за друге півріччя складає: ${paymentsForHalfTheYear} UAH <br>`);
+
+        // за літо;
+
+        const paymentsForTheSummer = getPaymentsForThePeriod(totalPayments, 6, 8);
+        document.write(`Сума платежів за літо складає: ${paymentsForTheSummer} UAH <br>`);
+
+
+        // за ІІ квартал;
+
+        const paymentsForTheSecondQuarter = getPaymentsForThePeriod(totalPayments, 4, 6);
+        document.write(`Сума платежів за другий квартал складає: ${paymentsForTheSecondQuarter} UAH <br>`);
+
+
+        //за парні місяці (з парними номерами).
+
+        let pairedSum = 0;
+        for (let i = 0; i < 12; i += 2) {
+            pairedSum += totalPayments[i];
+        }
+
+
+        document.write(`Сума платежів за парні місяці складає: ${pairedSum} UAH <br>`);
+
+
+        // за місяці, які є початковими у сезоні (весна, літо, осінь, зима). кожен 3
+
+
+        let oneInThreeSum = 0;
+        for (let i = 2; i < totalPayments.length; i += 3) {
+            oneInThreeSum += totalPayments[i];
+        }
+
+
+        document.write(`Сума платежів за місяці, які є початковими у сезоні складає: ${oneInThreeSum} UAH`);
+
+
+    </script>
+</body>
+
+</html>

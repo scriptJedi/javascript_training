@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #8</title>
+</head>
+
+<body>
+    <h1>Задача #8</h1>
+    <p>
+        Морський бій. Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів.
+        Комп’ютер
+        довільно розміщує ці одиночні кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста, якщо 1
+        – то це
+        означає, що там є корабель. Користувач вводить номер клітинки, куди стріляє. Гра продовжується до тих пір, поки
+        не
+        будуть потоплені усі кораблі.
+
+    </p>
+
+    <script>
+
+        let size = parseInt(prompt('Введіть кількість клітинок'));
+        let ships = parseInt(prompt('Введіть кількість кораблів'));
+
+        let computerBoard = new Array(size).fill(0); // Создаємо пустий массив на вказану користувачем кількість клітинок і заповнюємо її нулями
+        let attemptsShoots = new Array(size).fill(0);
+
+        // Рандомно розставляємо одиниці
+        for (let i = 0; i < ships; i++) {
+            let rndNum = Math.floor(Math.random() * size + 1);
+            computerBoard[rndNum] = 1;
+        }
+
+        document.write(`Кораблі розміщувались у такому порядку: ${computerBoard}<br>`);
+
+        while (computerBoard.includes(1)) { // Цикл запустится тільки якщо у масиві присутні 1
+            let userShoots = parseInt(prompt('Введіть номер клітинки для пострілу'));
+            if (computerBoard[userShoots] === 1) {
+                computerBoard[userShoots] = 0; // якщо влучили у корабель, то замінити 1 на 0
+                alert(`Ви попали!`);
+            } else alert('Спробуйте ще раз');
+        }
+
+        document.write(`Ви перемогли, вітаю!`)
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #7</title>
+</head>
+
+<body>
+    <h1>Задача #7</h1>
+    <p>
+        Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим чином
+        значеннями від
+        -500 до 500). Надаючи користувачу можливість вибирати номери елементів (поки він не відмовиться). Знаходити
+        сумарний
+        виграш.
+
+    </p>
+
+    <script>
+
+        //Дано одновимірний масив, у якому зберігається певна виграшна сума
+
+        function getRndNum(length) {
+            const minNum = -500;
+            const maxNum = 500;
+            let result = [];
+            for (let i = 0; i < length; i++) {
+                let rndNum = Math.floor(Math.random() * (maxNum - minNum) + minNum);
+                result.push(rndNum);
+            }
+            return result;
+        }
+
+        const rndNumArray = getRndNum(12);
+
+        //========================================================================================================================================================
+
+        function getPrize(array) {
+            let result = 0;
+            let userInput = 0;
+            do {
+                userInput = parseInt(prompt('Введіть номер ячейки від 1 до 12'));
+                if (userInput > 0 && userInput <= 12 && !isNaN(userInput))
+                    result += array[userInput - 1];
+            }
+            while (isFinite(userInput));
+            return result;
+        }
+
+        let totalPrize = getPrize(rndNumArray);
+
+        document.write(`
+        Бонуси в масиві: ${rndNumArray} <br>
+        Ваш виграш склав: ${totalPrize}
+        `)
+
+
+    </script>
+</body>
+
+</html>
