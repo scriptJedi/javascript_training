@@ -24,12 +24,10 @@
 
         //Дано одновимірний масив, у якому зберігається певна виграшна сума
 
-        function getRndNum(length) {
-            const minNum = -500;
-            const maxNum = 500;
+        function getRndNum(length, minRangeNum = -500, maxRangeNum = 500) {
             let result = [];
             for (let i = 0; i < length; i++) {
-                let rndNum = Math.floor(Math.random() * (maxNum - minNum) + minNum);
+                let rndNum = Math.floor(Math.random() * (maxRangeNum - minRangeNum) + minRangeNum);
                 result.push(rndNum);
             }
             return result;

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #7</title>
+</head>
+
+<body>
+    <h1>Задача #7</h1>
+    <p>
+        Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+    </p>
+
+    <script>
+
+        const numberThatBeginWithA = () => {
+            const vehicleLicense = ['AA3411ZA', 'KA3564AA', 'AX2934JA', 'BB9432FA', 'AH9233OP', 'AP9823OI', 'BB4684AA'];
+            const newArr = vehicleLicense.filter(el => {
+                if (el[0] === 'A') return el;
+            });
+            return newArr;
+        };
+
+        document.write(numberThatBeginWithA());
+
+    </script>
+</body>
+
+</html>

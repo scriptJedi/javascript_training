@@ -19,26 +19,26 @@
 
     <script>
 
-        let assessment = [5, 4, 5, 3, 3];
+        let assessment = [5, 2, 4, 5, 3, 3];
 
         // Отримуємо середню оцінку учня
         function getAverageAssessment(array) {
             let sum = 0;
             for (let i = 0; i < array.length; i++) {
                 sum += array[i];
-                console.log(sum);
             }
             return sum / array.length;
         }
 
         // З'ясовуємо до якої категорії належить учень
         function getEvaluationsLevel(assessmentArray) {
+            const minAssessment = Math.min(...assessment);
             let result;
             for (let i = 0; i < assessmentArray.length; i++) {
-                if (assessmentArray[i] === 1 || assessmentArray[i] === 2) result = 'двійочник';
-                else if (assessmentArray[i] === 3) result = 'трійочник';
-                else if (assessmentArray[i] === 4) result = 'хорошист';
-                else if (assessmentArray[i] === 5) result = 'відмінник';
+                if (minAssessment === 1 || minAssessment === 2) result = 'двійочник';
+                else if (minAssessment === 3) result = 'трійочник';
+                else if (minAssessment === 4) result = 'хорошист';
+                else if (minAssessment === 5) result = 'відмінник';
                 else result = 'помилка, спробуйте ще раз';
             }
             return result;
@@ -46,7 +46,7 @@
 
         document.write(`
             Учень ${getEvaluationsLevel(assessment)} <br>
-            Його середня оцінка ${getAverageAssessment(assessment)}
+            Його середня оцінка ${getAverageAssessment(assessment).toFixed(2)}
         `)
 
 

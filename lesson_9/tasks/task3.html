@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #3</title>
+</head>
+
+<body>
+    <h1>Задача #3</h1>
+    <p>
+        Дано масив елементів. Вивести на екран елементи, що більші за 100
+    </p>
+
+    <script>
+
+        // // Варіант за допомогою .filter();
+        // const moreThanHundred = () => {
+        //     const arr = [10, 20, 30, 140, 150, 160];
+        //     return arr.filter(el => el > 100);
+        // };
+
+        // document.write(moreThanHundred());
+
+
+
+        // Варіант з for..of
+        const moreThanHundred1 = () => {
+            const arr = [10, 20, 30, 140, 150, 160];
+            for (const num of arr) {
+                if (num > 100) document.write(num)
+            }
+        }
+
+        moreThanHundred1();
+
+
+
+    </script>
+</body>
+
+</html>

@@ -50,9 +50,19 @@
 
         // Кількість оцінок, які нижче середнього.
 
+        function getAverage(arr) {
+            let result = 0;
+            for (let i = 0; i < pupilGrades.length; i++) {
+                result += pupilGrades[i]
+            }
+            return result / pupilGrades.length;
+        }
+
+        let averageCount = getAverage(pupilGrades);
+
         let counterGradesBelowAverage = 0;
         for (let i = 0; i < pupilGrades.length; i++) {
-            if (pupilGrades[i] <= 3) counterGradesBelowAverage++;
+            if (pupilGrades[i] <= averageCount) counterGradesBelowAverage++;
         }
 
 
