@@ -28,11 +28,10 @@
          document.write(`Масив: ${arr.join(', ')} <br>`)
 
         // Формуємо новий масив з цінами, які більші за попереднє значення
-        
-        let moreForThePrevious = arr.reduce((prevAggregateValue, el, index, baseArrRef) => {
-            if (el > baseArrRef[index - 1]) return [...prevAggregateValue, el];
-            return prevAggregateValue;
-        }, []);
+
+        let moreForThePrevious = arr.map((el, index, baseArrRef) => {
+            if (el > baseArrRef[index - 1]) return el;
+        }).filter(el => el != undefined); // За допомогою метода filter видаляємо всі значення undefined з масиву
 
         document.write(`Новий массив: ${moreForThePrevious.join(', ')}`)
 
