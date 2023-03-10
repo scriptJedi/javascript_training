@@ -27,18 +27,23 @@
         let size = parseInt(prompt('Введіть кількість клітинок'));
         let ships = parseInt(prompt('Введіть кількість кораблів'));
 
-        let computerBoard = new Array(size).fill(0); // Создаємо пустий массив на вказану користувачем кількість клітинок і заповнюємо її нулями
+        let computerBoard = new Array(size).fill(0); // Створюємо пустий масив на вказану користувачем кількість клітинок і заповнюємо її нулями
         let attemptsShoots = new Array(size).fill(0);
+        let usedCells = []; // Створюємо масив для зберігання вже використаних клітинок
 
-        // Рандомно розставляємо одиниці
+        // Рандомно розставляємо кораблі
         for (let i = 0; i < ships; i++) {
             let rndNum = Math.floor(Math.random() * size + 1);
+            while (usedCells.includes(rndNum)) { // Перевіряємо, чи не було згенеровано вже цю клітинку
+                rndNum = Math.floor(Math.random() * size + 1);
+            }
+            usedCells.push(rndNum); // Додаємо згенеровану клітинку до списку використаних
             computerBoard[rndNum] = 1;
         }
 
         document.write(`Кораблі розміщувались у такому порядку: ${computerBoard}<br>`);
 
-        while (computerBoard.includes(1)) { // Цикл запустится тільки якщо у масиві присутні 1
+        while (computerBoard.includes(1)) { // Цикл запуститься тільки якщо у масиві присутні 1
             let userShoots = parseInt(prompt('Введіть номер клітинки для пострілу'));
             if (computerBoard[userShoots] === 1) {
                 computerBoard[userShoots] = 0; // якщо влучили у корабель, то замінити 1 на 0
@@ -46,7 +51,8 @@
             } else alert('Спробуйте ще раз');
         }
 
-        document.write(`Ви перемогли, вітаю!`)
+        document.write(`Ви перемогли, вітаю!`);
+
 
 
     </script>

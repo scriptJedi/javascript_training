@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #11</title>
+</head>
+
+<body>
+    <h1>Задача #11</h1>
+    <p>
+        Знайти останню ціну, що більше за 1000
+    </p>
+
+    <script>
+
+        // Функція яка повертає рандомне число
+        function getRndNum(minNum = 1, maxNum = 10000) {
+            return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+        }
+
+        // Генеруємо історію цін на цінні папери за період (12)
+        let arr = new Array(12).fill(0).map(el => getRndNum(1, 2000));
+
+        document.write(`Масив: ${arr.join(', ')} <br>`);
+
+
+        // Визначаємо першу ціну, що більше за 1000
+
+        let firstPriceMoreThen1000 = arr.findLast(el => el > 1000);
+
+        document.write(`Перша ціна що більше за 1000: ${firstPriceMoreThen1000}`)
+
+    </script>
+</body>
+
+</html>

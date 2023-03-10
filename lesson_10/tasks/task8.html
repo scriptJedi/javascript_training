@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #8</title>
+</head>
+
+<body>
+    <h1>Задача #8</h1>
+    <p>
+        Підрахувати суму цін, що більше за 1000
+    </p>
+
+    <script>
+
+        // Функція яка повертає рандомне число
+        function getRndNum(minNum = 1, maxNum = 10000) {
+            return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+        }
+
+        // Генеруємо історію цін на цінні папери за період (12)
+        let arr = new Array(12).fill(0).map(el => getRndNum(1, 2000));
+
+        document.write(`Масив: ${arr.join(', ')} <br>`);
+
+
+        // Визначаємо суму цін, що більше за 1000
+
+        let sumPricesMoreThen1000 = arr.reduce((sum, el) => {
+            if (el > 1000) sum += el
+            return sum;
+        }, 0)
+
+        document.write(`Сума цін, що більше за 1000: ${sumPricesMoreThen1000}`)
+
+    </script>
+</body>
+
+</html>

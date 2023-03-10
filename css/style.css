@@ -43,6 +43,15 @@ td {
     font-weight: 400;
 }
 
+.title_with-span {
+    text-align: end;
+}
+
+.title_with-span span {
+    font-size: 23px;
+    letter-spacing: 1px;
+}
+
 .homework-page__go-away {
     text-decoration: none;
     text-transform: uppercase;

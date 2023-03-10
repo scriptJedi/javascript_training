@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #3</title>
+</head>
+
+<body>
+    <h1>Задача #3</h1>
+    <p>
+        Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+    </p>
+
+    <script>
+
+        // Функція яка повертає рандомне число
+        function getRndNum(minNum = 1, maxNum = 10000) {
+            return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+        }
+
+        // Генеруємо історію цін на цінні папери за період (12)
+        let arr = new Array(12).fill(0).map(el => getRndNum());
+
+        document.write(`Масив: ${arr.join(', ')} <br>`)
+
+        // Формуємо новий масив, що містять значення цін у відсотках стосовно максимального
+        
+        let maxNumOnArr = Math.max(...arr); // Знаходимо максимальне число у масиві
+        document.write(`Максимальне число в масиві: ${maxNumOnArr} <br>`)
+
+        let percentPriceArr = arr.map(el => Math.round((el * 100) / maxNumOnArr));
+        document.write(`Массив чисел у процентах по відношенню до максимального: ${percentPriceArr.join('%, ')}`)
+
+
+    </script>
+</body>
+
+</html>

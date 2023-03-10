@@ -31,7 +31,7 @@
         function getPaymentsForThePeriod(payment, startPeriod, endPeriod) {
             let sum = 0;
             for (let i = startPeriod - 1; i < endPeriod; i++) {
-                sum += totalPayments[i];
+                sum += payment[i];
             }
             return sum;
         }
