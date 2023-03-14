@@ -21,13 +21,7 @@
 
         const fillArray = () => {
             const userInput = parseInt(prompt('Введіть кількість елементів масиву'));
-            let arr = new Array(userInput).fill(1);
-            const middleOfElement = arr.length / 2;
-            arr = arr.map((el, index) => {
-                if (index >= middleOfElement) el = 7;
-                return el;
-            });
-            return arr;
+            return new Array(userInput).fill(1).fill(7, Math.floor(userInput / 2));
         };
 
         document.write(fillArray());

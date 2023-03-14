@@ -23,14 +23,14 @@
         }
 
         // Генеруємо історію цін на цінні папери за період (12)
-        let arr = new Array(12).fill(0).map(el => getRndNum(1, 1200));
+        let arr = new Array(12).fill(0).map(el => getRndNum(1, 10000));
 
         document.write(`Масив: ${arr.join(', ')} <br>`);
 
 
         // Визначаємо чи усі ціни менше 1000
 
-        let lessThanHundred = arr.every((price) => price > 1000);
+        let lessThanHundred = arr.every(price => price > 1000);
 
         document.write(`Чи усі ціни менше 1000: ${lessThanHundred}`)
 

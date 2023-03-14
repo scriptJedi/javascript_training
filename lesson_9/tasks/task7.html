@@ -18,10 +18,8 @@
     <script>
 
         const numberThatBeginWithA = () => {
-            const vehicleLicense = ['AA3411ZA', 'KA3564AA', 'AX2934JA', 'BB9432FA', 'AH9233OP', 'AP9823OI', 'BB4684AA'];
-            const newArr = vehicleLicense.filter(el => {
-                if (el[0] === 'A') return el;
-            });
+            const vehicleLicense = ['AA3411ZA', 'KA3564AA', 'AX2934JA', 'BB9432FA', 'AH9233OP', 'AP9823OI', 'BB4684AA', 'AE4232KK'];
+            const newArr = vehicleLicense.filter(el => el[0] === 'A');
             return newArr;
         };
 

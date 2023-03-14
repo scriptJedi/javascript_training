@@ -233,6 +233,8 @@
     padding-right: 3.3em;
     letter-spacing: 2px;
     cursor: pointer;
+    box-shadow: -11px 11px 22px #dbdbdb,
+        11px -11px 22px #ffffff;
 }
 
 .cssbuttons-io-button .icon {

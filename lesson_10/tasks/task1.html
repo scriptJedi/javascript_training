@@ -28,7 +28,7 @@
          document.write(`Масив: ${arr.join(', ')} <br>`)
 
         // Формуємо новий массив з індексами числа яких > 1000
-        
+
         let moreThanHundredIndexArray = arr.map((el, index) => {
             if (el > 1000) return index;
         }).filter(el => el != undefined); // За допомогою метода filter видаляємо всі значення undefined з масиву

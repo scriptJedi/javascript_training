@@ -30,8 +30,8 @@
         // Рахуємо кількість змін цін
 
         let changesPrice = arr.reduce((counter, el, index, baseArrRef) => {
-            let nextValue = arr[index + 1];
-            if (arr[index] !== nextValue) counter++;
+            let nextValue = baseArrRef[index + 1];
+            if (baseArrRef[index] !== nextValue) counter++;
             return counter;
         }, 0)
 

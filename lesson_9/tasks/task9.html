@@ -21,12 +21,9 @@
         const buildTax = () => {
             const priceList = [20, 40, 7, 522, 928, 1241];
             const tax = 0.2;
-            const taxArray = priceList.map(el => {
-                const taxSum =  el * tax;
-                return Math.floor(taxSum);
-            });
+            const taxArray = priceList.map(el => Math.floor(el * tax));
             return taxArray;
-        }
+        };
 
         document.write(buildTax())
 

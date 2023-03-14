@@ -29,15 +29,10 @@
 
 
         // Знаходимо індекс першої ціни, що більше за 1000
-        let foundedIndex = -1; // -1, щоб не сплутати, якщо find нічого не поверне
-        let firstPriceMoreThen1000 = arr.findLast((el, index) => {
-            if (el > 1000) {
-                foundedIndex = index;
-                return true;
-            }
-        });
+    
+        let lastPriceMoreThen1000 = arr.findLastIndex(el => el > 1000);
 
-        document.write(`Індекс першої ціни, що більше за 1000: ${foundedIndex}`)
+        document.write(`Індекс першої ціни, що більше за 1000: ${lastPriceMoreThen1000}`)
 
 
     </script>

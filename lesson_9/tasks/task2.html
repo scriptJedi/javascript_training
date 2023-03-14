@@ -18,18 +18,12 @@
 
     <script>
 
-            const fillArray = () => {
-                const userInput = parseInt(prompt('Введіть кількість елементів масиву'));
-                let arr = new Array(userInput).fill(1);
-                arr = arr.map((el, index) => {
-                    if (index >= 5) el = 7;
-                    return el;
-                });
-                return arr;
-            };
-            
-            
-            document.write(fillArray());
+        const fillArray = () => {
+            const userInput = parseInt(prompt('Введіть кількість елементів масиву'));
+            return new Array(userInput).fill(1).fill(7, 5);
+        };
+
+        document.write(fillArray());
 
     </script>
 </body>
