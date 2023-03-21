@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #0</title>
+</head>
+
+<body>
+    <h1>Задача #0</h1>
+
+    <p>
+        Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування бульбашкою
+    </p>
+
+    <script>
+
+        function getRndNum(minNum = 1, maxNum = 1000) {
+            return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+        }
+
+        let arr = new Array(30).fill(0).map(el => getRndNum());
+        document.write(`Масив до сортування: ${arr} <br>`);
+
+        let counter = 0;
+        let changed;
+        do {
+            changed = false;
+            for (let i = 1; i <= arr.length; i++) {
+                if (arr[i - 1] > arr[i]) {
+                    let tmp = arr[i - 1];
+                    arr[i - 1] = arr[i];
+                    arr[i] = tmp;
+                    counter++;
+                    changed = true;
+                }
+            }
+        } while (changed);
+
+        document.write(`
+        Масив після сортування: ${arr} <br>
+        Кількість обмінів: ${counter}
+        `);
+
+    </script>
+</body>
+
+</html>

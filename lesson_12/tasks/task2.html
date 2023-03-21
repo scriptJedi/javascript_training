@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #2</title>
+</head>
+
+<body>
+    <h1>Задача #2</h1>
+
+    <p>
+        Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування включеннями.
+    </p>
+
+    <script>
+
+        function getRndNum(minNum = 1, maxNum = 1000) {
+            return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+        }
+
+        let arr = new Array(30).fill(0).map(el => getRndNum());
+        document.write(`Масив до сортування: ${arr} <br>`);
+
+        let counter = 0;
+        let currentElement, i;
+        for (let k = 1; k < arr.length; k++) {
+            currentElement = arr[k];
+            i = k - 1;
+            while (i >= 0 && arr[i] > currentElement) {
+                arr[i + 1] = arr[i];
+                i = i - 1;
+                counter++;
+            }
+            arr[i + 1] = currentElement;
+        }
+
+        document.write(`
+        Масив після сортування: ${arr} <br>
+        Кількість обмінів: ${counter}
+        `);
+
+    </script>
+</body>
+
+</html>

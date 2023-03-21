@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #3</title>
+</head>
+
+<body>
+    <h1>Задача #3</h1>
+
+    <p>
+        Для розглянутих методів сортування спробувати вивести етапи сортування шляхом виведення відповідних таблиць за
+        зразком. <br>
+        Тобто кожного разу після обміну елементів вивести поточний стан масиву на екран.
+    </p>
+
+    <script>
+
+        function getRndNum(minNum = 1, maxNum = 1000) {
+            return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+        }
+
+        let arr = new Array(5).fill(0).map(el => getRndNum());
+
+        document.write(`Массив до сортування: ${arr} <br>`);
+
+        //========================================================================================================================================================
+        // Сортування бульбашкою ==================================================================================================================================
+        //========================================================================================================================================================
+
+        const bubbleArr = [...arr];
+
+        function bubbleSort(array) {
+            let changed;
+            let count = 0;
+            do {
+                changed = false;
+                for (let i = 1; i <= array.length; i++) {
+                    if (array[i - 1] > array[i]) {
+                        let tmp = array[i - 1];
+                        array[i - 1] = array[i];
+                        array[i] = tmp;
+                        count++;
+                        document.write(`Зміна ${count} : [${array}] <br>`);
+                        changed = true;
+                    }
+                }
+            } while (changed);
+            return array;
+        }
+
+        //========================================================================================================================================================
+        // Сортування змішуванням =================================================================================================================================
+        //========================================================================================================================================================
+
+        function cocktailSort(array) {
+            function swap(array, index, nextIndex) {
+                let tmp = array[index];
+                array[index] = array[nextIndex];
+                array[nextIndex] = tmp;
+                return array[nextIndex];
+            }
+            let count = 0;
+            let leftIndex = 0;
+            let rightIndex = array.length - 1;
+            while (leftIndex < rightIndex) {
+                for (let i = leftIndex; i < rightIndex; i++) {
+                    if (array[i] > array[i + 1]) {
+                        swap(array, i, i + 1);
+                        count++;
+                        document.write(`Зміна ${count} : [${array}] <br>`);
+                    }
+                }
+                rightIndex--;
+                for (let i = rightIndex; i > leftIndex; i--) {
+                    if (array[i] < array[i - 1]) {
+                        swap(array, i, i - 1);
+                        count++;
+                        document.write(`Зміна ${count} : [${array}] <br>`);
+                    }
+                }
+                leftIndex++;
+            }
+            return array;
+        }
+
+        //========================================================================================================================================================
+        // Сортування включенням ==================================================================================================================================
+        //========================================================================================================================================================
+
+        function inclusionSort(array) {
+            let count = 0;
+            let currentElement, i;
+            for (let k = 1; k < array.length; k++) {
+                currentElement = array[k];
+                i = k - 1;
+                while (i >= 0 && array[i] > currentElement) {
+                    array[i + 1] = array[i];
+                    count++;
+                    document.write(`Зміна ${count} : [${array}] <br>`);
+                    i = i - 1;
+                }
+                arr[i + 1] = currentElement;
+                count++;
+                document.write(`Зміна ${count} : [${array}] <br>`);
+            }
+            return array;
+        }
+
+        //========================================================================================================================================================
+        // Вивід результату =======================================================================================================================================
+        //========================================================================================================================================================
+
+        document.write(`<h2>Сортування бульбашкою </h2>`);
+        const bubbleSortResult = bubbleSort(bubbleArr);
+        document.write(`Массив після сортування: [${bubbleArr}] <br>`);
+        //==================================================================
+        const cocktailSortArr = [...arr];
+        document.write(`<h2>Сортування змішуванням </h2>`);
+        cocktailSort(cocktailSortArr);
+        document.write(`Массив після сортування: [${cocktailSortArr}] <br>`);
+        //==================================================================
+        const inclusionSortArr = [...arr];
+        document.write(`<h2>Сортування включенням </h2>`);
+        inclusionSort(cocktailSortArr);
+        document.write(`Массив після сортування: [${inclusionSortArr}] <br>`);
+
+
+    </script>
+</body>
+
+</html>

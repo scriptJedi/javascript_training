@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #5</title>
+</head>
+
+<body>
+    <h1>Задача #5</h1>
+
+    <p>
+        Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я довжиною 5
+        символів
+        і під яким індексом.
+    </p>
+
+    <script>
+
+        const namesArray = [
+            'John',
+            'Bob',
+            'Jack',
+            'Olivia',
+            'William',
+            'Olga',
+            'Simon',
+        ];
+
+        document.write(`Оригінальній масив: ${namesArray} <br>`);
+
+        inclusionSort(namesArray);
+
+        document.write(`Відсортований масив: ${namesArray} <br>`);
+
+        const findIndexOlga = findIndex_binarySearch(namesArray, 5);
+
+        document.write(`Індекс: ${findIndexOlga}`);
+
+        //========================================================================================================================================================
+        // Бінарний пошук індекса =================================================================================================================================
+        //========================================================================================================================================================
+
+        function findIndex_binarySearch(arr, nameLength) {
+            let start = 0;
+            let end = arr.length - 1;
+            while (start <= end) {
+                const middle = Math.floor((start + end) / 2);
+                if (arr[middle].length === nameLength) return middle;
+                if (arr[middle].length < nameLength) start = middle + 1;
+                if (arr[middle].length > nameLength) end = middle - 1;
+            }
+            return -1;
+        }
+
+        //========================================================================================================================================================
+        // Сортуємо масив за допомогою метода включення ============================================================================================================
+        //========================================================================================================================================================
+
+        function inclusionSort(array) {
+            let currentElement, i;
+            for (let k = 1; k < array.length; k++) {
+                currentElement = array[k];
+                i = k - 1;
+                while (i >= 0 && array[i] > currentElement) {
+                    array[i + 1] = array[i];
+                    i = i - 1;
+                }
+                array[i + 1] = currentElement;
+            }
+            return array;
+        }
+
+
+
+    </script>
+</body>
+
+</html>

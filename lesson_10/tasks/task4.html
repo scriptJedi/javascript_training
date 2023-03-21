@@ -29,14 +29,21 @@
 
         // Рахуємо кількість змін цін
 
-        let changesPrice = arr.reduce((counter, el, index, baseArrRef) => {
-            let nextValue = baseArrRef[index + 1];
-            if (baseArrRef[index] !== nextValue) counter++;
-            return counter;
-        }, 0)
+        // let changesPrice = arr.reduce((counter, el, index, baseArrRef) => {
+        //     let nextValue = baseArrRef[index + 1];
+        //     if (baseArrRef[index] !== nextValue) counter++;
+        //     return counter;
+        // }, 0)
 
-        document.write(`Ціна змінювалась: ${changesPrice} разів`)
+        //========================================================================================================================================================
 
+        let changesPrice = -1; 
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== arr[i + 1])
+                changesPrice++;
+        }
+
+        document.write(`Ціна змінювалась: ${changesPrice} разів`);
     </script>
 </body>
 

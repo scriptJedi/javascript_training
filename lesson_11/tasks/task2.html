@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #2</title>
+</head>
+
+<body>
+    <h1>Задача #2</h1>
+    <p>
+        Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач стріляє
+        вказуючи
+        координати. Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.
+    </p>
+
+    <script>
+
+        // генеруємо рандомне число для запису в масив
+        function getRndNum(min = 1, max = 1000) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        // Створюємо двовимірний масив розміру tableSize x tableSize та заповнюємо його нулями.
+
+        function getEmptyTable(tableSize) {
+            const table = [];
+            for (let i = 0; i < tableSize; i++) {
+                const rowArray = new Array(tableSize).fill(0);
+                table.push(rowArray);
+            }
+            return table;
+        }
+        // Заповнюємо двовимірний масив кораблями.
+        function getFilledTable(emptyTable, shipsNumber, minNum, maxNum) {
+            for (let ship = 0; ship < shipsNumber; ship++) {
+                let coordinateX;
+                let coordinateY;
+                do {
+                    coordinateX = getRndNum(minNum, maxNum);
+                    coordinateY = getRndNum(minNum, maxNum);
+                } while (emptyTable[coordinateY][coordinateX] === 1);
+                emptyTable[coordinateY][coordinateX] = 1;
+            }
+            return emptyTable;
+        }
+
+        const tableSize = 6;
+        const shipsNumber = 5;
+        const shellsNumber = parseInt(prompt('Введіть необхідну кількість снарядів?', 5));
+
+        // Змінна emptyTable містить двовимірний масив розміру tableSize x tableSize, заповнений нулями.
+        const emptyTable = getEmptyTable(tableSize);
+
+        // Змінна filledTable містить двовимірний масив розміру tableSize x tableSize, у який записані координати кораблів.
+        const filledTable = getFilledTable(emptyTable, shipsNumber, 0, tableSize - 1);
+
+        // Ініціалізуємо гру
+
+        function game(filledTable, ships, shells) {
+            let userCoordinateX = parseInt(prompt('Введіть ячейку для пострілу по координаті X'));
+            let userCoordinateY = parseInt(prompt('Введіть ячейку для пострілу по координаті Y'));
+            shells++;
+
+            do {
+                if (filledTable[userCoordinateY - 1][userCoordinateX - 1] === 1) {
+                    ships++;
+                    filledTable[userCoordinateY - 1][userCoordinateX - 1] = 0;
+                    alert('Є влучання!');
+                    userCoordinateX = parseInt(prompt('Введіть координату для наступного пострілу по координаті X'));
+                    userCoordinateY = parseInt(prompt('Введіть координату для наступного пострілу по координаті Y'));
+                } else {
+                    shells++;
+                    alert('На жаль ви не влучили');
+                    userCoordinateX = parseInt(prompt('Введіть координату для наступного пострілу по координаті X'));
+                    userCoordinateY = parseInt(prompt('Введіть координату для наступного пострілу по координаті Y'));
+                }
+            }
+            while (ships > 0 && shells > 0);
+            return ships === 0 ? 'Ви перемогли!' : 'Ви програли';
+        }
+        alert(game(filledTable, shipsNumber, shellsNumber));
+
+
+    </script>
+</body>
+
+</html>

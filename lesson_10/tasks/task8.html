@@ -30,7 +30,7 @@
 
         // Визначаємо суму цін, що більше за 1000
 
-        let sumPricesMoreThen1000 = arr.reduce((sum, el, index, baseArrRef) => el > 1000 ? sum += el : sum, 0);
+        let sumPricesMoreThen1000 = arr.reduce((sum, el) => el > 1000 ? sum + el : sum, 0);
 
         document.write(`Сума цін, що більше за 1000: ${sumPricesMoreThen1000}`)
 

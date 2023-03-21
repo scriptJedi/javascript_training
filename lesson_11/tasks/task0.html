@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #0</title>
+    <style>
+        li {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Задача #0</h1>
+    <p>
+        Знайти суми елементів у вказаній області
+    </p>
+
+    <script>
+
+        // генеруємо рандомне число для запису в масив
+        function getRndNum(min = 1, max = 10) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        const rowSize = 4,
+            columnSize = 4;
+
+        // генеруємо двовимірний масив
+        let arr = [];
+        for (let i = 0; i < rowSize; i++) {
+            arr[i] = [];
+            for (let j = 0; j < columnSize; j++) {
+                arr[i][j] = getRndNum();
+            }
+        }
+
+        // Знаходимо середину масиву
+        function getMidArray(index) {
+            return Math.floor(arr[index].length / 2);
+        }
+        const midArr = getMidArray(0);
+
+    </script>
+    <ol>
+        <li>
+            <img src="../img/1.png" alt="">
+        </li>
+
+        <script>
+
+            // 1) 
+            let firstTaskSum = 0;
+            for (let rowIndex = 0; rowIndex < midArr; rowIndex++) {
+                for (let colIndex = 0; colIndex < midArr; colIndex++) {
+                    firstTaskSum += arr[rowIndex][colIndex];
+                }
+            }
+
+            console.log(arr);
+            document.write(`1) Сума елементів в першому випадку: ${firstTaskSum}`)
+
+
+        </script>
+
+        <li>
+            <img src="../img/2.png" alt="">
+        </li>
+
+        <script>
+
+            // 2) 
+            let secondTaskSum = 0;
+            for (let rowIndex = 0; rowIndex < midArr; rowIndex++) {
+                for (let colIndex = midArr; colIndex < arr.length; colIndex++) {
+                    secondTaskSum += arr[rowIndex][colIndex];
+                }
+            }
+
+            document.write(`2) Сума елементів в другому випадку: ${secondTaskSum}`)
+
+        </script>
+
+        <li>
+            <img src="../img/3.png" alt="">
+        </li>
+
+        <script>
+
+            // 3) 
+            let thirdTaskSum = 0;
+            for (let rowIndex = midArr; rowIndex < arr.length; rowIndex++) {
+                for (let colIndex = 0; colIndex < midArr; colIndex++) {
+                    thirdTaskSum += arr[rowIndex][colIndex];
+                }
+            }
+
+            document.write(`3) Сума елементів в третьому випадку: ${thirdTaskSum}`)
+
+        </script>
+
+        <li>
+            <img src="../img/4.png" alt="">
+        </li>
+
+        <script>
+
+            // 4) 
+            let fourthTaskSum = 0;
+            for (let rowIndex = midArr; rowIndex < arr.length; rowIndex++) {
+                for (let colIndex = midArr; colIndex < arr.length; colIndex++) {
+                    fourthTaskSum += arr[rowIndex][colIndex];
+                }
+            }
+
+            document.write(`4) Сума елементів в четвертому випадку: ${fourthTaskSum}`)
+
+        </script>
+
+        <li>
+            <p>Суму парних рядків</p>
+        </li>
+
+        <script>
+
+            // 5) 
+            let fifthTaskSum = 0;
+            for (let rowIndex = 0; rowIndex < arr.length; rowIndex += 2) {
+                for (let colIndex = 0; colIndex < arr[rowIndex].length; colIndex++) {
+                    fifthTaskSum += arr[rowIndex][colIndex];
+                }
+            }
+
+            document.write(`5) Сума елементів в п'ятому випадку: ${fifthTaskSum}`)
+
+        </script>
+
+        <li>
+            <p>Суму непарних стовпців</p>
+        </li>
+
+        <script>
+
+            // 6)   
+            let sixthTaskSum = 0;
+            for (let rowIndex = 0; rowIndex < arr.length; rowIndex++) {
+                for (let colIndex = 1; colIndex <= arr[rowIndex].length; colIndex += 2) {
+                    sixthTaskSum += arr[rowIndex][colIndex];
+                }
+            }
+
+            document.write(`6) Сума елементів в шостому випадку: ${sixthTaskSum}`)
+
+        </script>
+
+        <li>
+            <p>У парних рядках – непарні стовпці, у непарних – парні.</p>
+        </li>
+
+        <script>
+
+            // 7)   
+            let seventhTaskSum = 0;
+
+            let pairedRowAndUnpairedColSum = 0;
+            for (let rowIndex = 0; rowIndex < arr.length; rowIndex += 2) {
+                for (let colIndex = 1; colIndex <= arr[rowIndex].length; colIndex += 2) {
+                    pairedRowAndUnpairedColSum += arr[rowIndex][colIndex];
+                }
+            }
+
+            let unpairedRowAndPairedColSum = 0;
+            for (let rowIndex = 1; rowIndex <= arr.length; rowIndex += 2) {
+                for (let colIndex = 0; colIndex < arr.length; colIndex += 2) {
+                    unpairedRowAndPairedColSum += arr[rowIndex][colIndex];
+                }
+            }
+
+            seventhTaskSum = pairedRowAndUnpairedColSum + unpairedRowAndPairedColSum;
+
+            document.write(`Сума у парних рядках – непарні стовпці ${pairedRowAndUnpairedColSum} <br>`);
+            document.write(`Сума у непарних рядках – парні стовпці ${unpairedRowAndPairedColSum} <br>`);
+            document.write(`7) Сума елементів в сьомому випадку: ${seventhTaskSum}`)
+
+        </script>
+    </ol>
+
+</body>
+
+</html>

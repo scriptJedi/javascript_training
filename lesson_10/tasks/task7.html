@@ -30,7 +30,7 @@
 
         // Визначаємо кількість цін, що більше за 1000
 
-        let numberOfPricesMorePer1000 = arr.reduce((counterNumber, el) => el > 1000 ? counterNumber += 1 : counterNumber, 0);
+        let numberOfPricesMorePer1000 = arr.reduce((counterNumber, el) => el > 1000 ? counterNumber + 1 : counterNumber, 0);
 
         document.write(`Кількість цін більше за 1000 становить: ${numberOfPricesMorePer1000}`)
 

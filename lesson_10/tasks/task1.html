@@ -25,15 +25,36 @@
         // Генеруємо історію цін на цінні папери за період (12)
         let arr = new Array(12).fill(0).map(el => getRndNum());
 
-         document.write(`Масив: ${arr.join(', ')} <br>`)
+        document.write(`Масив: ${arr.join(', ')} <br>`);
 
         // Формуємо новий массив з індексами числа яких > 1000
 
-        let moreThanHundredIndexArray = arr.map((el, index) => {
-            if (el > 1000) return index;
-        }).filter(el => el != undefined); // За допомогою метода filter видаляємо всі значення undefined з масиву
+        // 1 варіант
+        
+        // let moreThanThousandIndexArray = arr.map((el, index) => {
+        //     if (el > 1000) return index;
+        // }).filter(el => el != undefined); // За допомогою метода filter видаляємо всі значення undefined з масиву
 
-        document.write(`Массив індексів, чисел які більше за 1000: <br>${moreThanHundredIndexArray.join(', ')}`);
+
+
+        // 2 варіант
+        
+        // let moreThanThousandIndexArray = arr.reduce((prevList, el, index) => {
+        //     if (el > 1000)
+        //         prevList.push(index);
+        //     return prevList;
+        // }, []);
+
+
+
+        // 3 варіант
+        
+        let moreThanThousandIndexArray = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > 1000) moreThanThousandIndexArray.push(i);
+        }
+
+        document.write(`Массив індексів, чисел які більше за 1000: <br>${moreThanThousandIndexArray.join(', ')}`);
 
     </script>
 </body>

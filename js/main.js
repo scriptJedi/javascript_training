@@ -25,3 +25,53 @@ function colorLink() {
 
 linkColor.forEach((l) => l.addEventListener('click', colorLink));
 
+//========================================================================================================================================================
+
+const namesArray = [
+  'John',
+  'Bob',
+  'Jack',
+  'Olivia',
+  'Olga',
+  'William',
+  'Simon',
+];
+document.write(`Оригінальній масив: ${namesArray}`);
+
+inclusionSort(namesArray);
+
+document.write(`Відсортований масив: ${namesArray}`);
+
+const findIndexOlga = findIndex_binarySearch(namesArray, 'Olga');
+
+document.write(`Індекс: ${findIndexOlga}`);
+
+//========================================================================================================================================================
+
+function findIndex_binarySearch(arr, searchElement) {
+  let start = 0;
+  let end = arr.length - 1;
+  while (start <= end) {
+    const middle = Math.floor((start + end) / 2);
+    if (arr[middle] === searchElement) return middle;
+    if (arr[middle] < searchElement) start = middle + 1;
+    if (arr[middle] > searchElement) end = middle - 1;
+  }
+  return -1;
+}
+
+//========================================================================================================================================================
+
+function inclusionSort(array) {
+  let currentElement, i;
+  for (let k = 1; k < array.length; k++) {
+    currentElement = array[k];
+    i = k - 1;
+    while (i >= 0 && array[i] > currentElement) {
+      array[i + 1] = array[i];
+      i = i - 1;
+    }
+    array[i + 1] = currentElement;
+  }
+  return array;
+}

@@ -60,14 +60,12 @@ body {
     transition: all 0.5s ease 0s;
     border-radius: 20px;
     background: #fcfcfc;
-    box-shadow: -11px 11px 22px #dbdbdb,
-        11px -11px 22px #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
 .homework__item:hover {
     transform: scale(1.03);
-    box-shadow: -11px 11px 22px #a1a1a1,
-        11px -11px 22px #ffffff;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
 }
 
 .homework__link {

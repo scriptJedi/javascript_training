@@ -29,9 +29,15 @@
 
         // Формуємо новий масив з цінами, які більші за попереднє значення
 
-        let moreForThePrevious = arr.map((el, index, baseArrRef) => {
-            if (el > baseArrRef[index - 1]) return el;
-        }).filter(el => el != undefined); // За допомогою метода filter видаляємо всі значення undefined з масиву
+        // let moreForThePrevious = arr.map((el, index, baseArrRef) => {
+        //     if (el > baseArrRef[index - 1]) return el;
+        // }).filter(el => el != undefined); // За допомогою метода filter видаляємо всі значення undefined з масиву
+
+        let moreForThePrevious = [];
+        for (let i = 1; i <= arr.length; i++) {
+            if (arr[i] > arr[i - 1])
+                moreForThePrevious.push(arr[i]);
+        }
 
         document.write(`Новий массив: ${moreForThePrevious.join(', ')}`)
 
