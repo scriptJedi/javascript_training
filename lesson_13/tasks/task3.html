@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #3</title>
+</head>
+
+<body>
+    <h1>Задача #3</h1>
+
+    <p>
+        З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати по
+        одну
+        букву наперед заданого слова. З використанням нього розробити гру «Прекладач». Виводимо для користувача опис
+        цього слова
+        і по одну букву користувач вводить переклад цього слова. Підрахувати кількість вгаданих букв.
+    </p>
+
+    <script>
+        /*
+
+        Алгоритм для ітератора:
+        
+       - Створити функцію-генератор, яка приймає слово як аргумент і повертає замикання, що містить ітератор по слову.
+       - В замиканні створити змінну-лічильник, яка буде зберігати поточний індекс символу в слові.
+       - При кожному виклику функції-ітератора, повернути наступний символ в слові і збільшити лічильник на 1.
+        
+        */
+
+        function createIterator(word) {
+            let index = 0;
+            return function () {
+                if (index < word.length)
+                    return word[index++];
+                else return null;
+            };
+        };
+
+        const word = prompt('Enter the word');
+        const iterator = createIterator(word);
+
+        let translation = "";
+        let correctLetters = 0;
+
+        alert(`Translate the word "${word}"`);
+
+        while (true) {
+            const letter = prompt("Enter the next letter:");
+            translation += letter;
+
+            const nextLetter = iterator();
+            if (letter === nextLetter) {
+                correctLetters++;
+            }
+
+            if (nextLetter === null) {
+                break;
+            }
+        }
+        document.write(`Word: ${word} <br>`)
+        document.write(`You entered: ${translation} <br>`);
+        document.write(`You guessed ${correctLetters} out of ${word.length} letters.`);
+
+
+    </script>
+</body>
+
+</html>

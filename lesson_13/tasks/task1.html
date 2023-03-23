@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #1</title>
+</head>
+
+<body>
+    <h1>Задача #1</h1>
+
+    <div>
+        <span>Нехай, </span> <img src="../img/03.png">, де <img src="../img/04.png"><span>.Визначити.Розв’язати з
+            використанням рекурсивних і нерекурсивних алгоритмів</span>
+    </div>
+
+    <script>
+
+        function getNumberWithRecursion(i) {
+            if (i === 0 || i === 1) return 1;
+            else {
+                return (getNumberWithRecursion(i - 1) + (2 * getNumberWithRecursion(i - 2)));
+            }
+        }
+        
+        let number_i5 = getNumberWithRecursion(5);
+        document.write(`Результат з рекурсією i = 5: === ${number_i5} <br>`);
+
+        function getNumberWithoutRecursion(i) {
+            if (i === 0 || i === 1) return 1;
+            else {
+                let x_i_1 = 1;
+                let x_i_2 = 1;
+                let x_i = 0;
+                for (let k = 2; k <= i; k++) {
+                    x_i = x_i_1 + (2 * x_i_2);
+                    x_i_2 = x_i_1;
+                    x_i_1 = x_i;
+                }
+                return x_i;
+            }
+        }
+
+        let number_i10 = getNumberWithoutRecurse(10);
+        document.write(`Результат без рекурсії i = 10: === ${number_i10}`);
+
+
+    </script>
+</body>
+
+</html>

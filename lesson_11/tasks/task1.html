@@ -188,24 +188,62 @@
 
         <script>
 
-            // Функція для порівняння рядків з урахуванням максимального елементу
-            const compareRows = (rowA, rowB) => {
-                const maxA = Math.max(...rowA);
-                const maxB = Math.max(...rowB);
+            // // Функція для порівняння рядків з урахуванням максимального елементу
 
-                if (maxA < maxB) {
-                    return 1;
-                } else if (maxA > maxB) {
-                    return -1;
-                } else {
-                    return 0;
+            // const compareRows = (rowA, rowB) => {
+            //     const maxA = Math.max(...rowA);
+            //     const maxB = Math.max(...rowB);
+
+            //     if (maxA < maxB) {
+            //         return 1;
+            //     } else if (maxA > maxB) {
+            //         return -1;
+            //     } else {
+            //         return 0;
+            //     }
+            // };
+
+            // // Сортуємо рядки за спаданням максимального елементу
+            // const sortedRows = arr.sort(compareRows);
+
+            // document.write(sortedRows);
+
+            //========================================================================================================================================================
+            //========================================================================================================================================================
+            //========================================================================================================================================================
+
+
+            // let maxRowsElement = arr.map(row => Math.max(...row));
+
+            let arrCopy = JSON.parse(JSON.stringify(arr));
+
+            let maxRowsElement = arrCopy.map((row) => row.reduce((prevMax, el) => prevMax > el ? prevMax : el));
+
+
+            function sortSelect(arrMax, array) {
+                const preLastIndex = arrMax.length - 1;
+                for (let i = 0; i < preLastIndex; i++) {
+                    let currentMaxIndex = i;
+                    for (let j = i + 1; j < arrMax.length; j++) {
+                        if (arrMax[j] > arrMax[currentMaxIndex]) currentMaxIndex = j;
+                    }
+                    if (i !== currentMaxIndex) {
+                        // Робимо обмін елементів у масиві з максимальними arrMax
+                        let tmp = arrMax[i];
+                        arrMax[i] = arrMax[currentMaxIndex];
+                        arrMax[currentMaxIndex] = tmp;
+                        // Робимо обмін елементів (рядків) у двовимірному масиві arr
+                        tmp = array[i];
+                        array[i] = array[currentMaxIndex];
+                        array[currentMaxIndex] = tmp;
+                    }
                 }
-            };
+                return array;
+            }
 
-            // Сортуємо рядки за спаданням максимального елементу
-            const sortedRows = arr.sort(compareRows);
 
-            document.write(sortedRows);
+            console.table(sortSelect(maxRowsElement, arrCopy));
+            document.write(sortSelect(maxRowsElement, arrCopy));
 
         </script>
 
@@ -218,24 +256,56 @@
 
         <script>
 
-            // Функція для порівняння рядків за сумою елементів
-                const compareRows1 = (rowA, rowB) => {
-                    const sumA = rowA.reduce((acc, curr) => acc + curr, 0);
-                    const sumB = rowB.reduce((acc, curr) => acc + curr, 0);
+            // // Функція для порівняння рядків за сумою елементів
+            // const compareRows1 = (rowA, rowB) => {
+            //     const sumA = rowA.reduce((prev, el) => prev + el, 0);
+            //     const sumB = rowB.reduce((prev, el) => prev + el, 0);
 
-                    if (sumA < sumB) {
-                        return 1;
-                    } else if (sumA > sumB) {
-                        return -1;
-                    } else {
-                        return 0;
+            //     if (sumA < sumB) {
+            //         return 1;
+            //     } else if (sumA > sumB) {
+            //         return -1;
+            //     } else {
+            //         return 0;
+            //     }
+            // };
+
+            // // Сортуємо рядки за спаданням суми елементів
+            // const sortedRows1 = arr.sort(compareRows1);
+
+            // document.write(sortedRows1);
+
+
+            //========================================================================================================================================================
+            //========================================================================================================================================================
+            //========================================================================================================================================================
+
+
+            let arrCopy1 = JSON.parse(JSON.stringify(arr));
+
+            let rowSum = arrCopy1.map((row) => row.reduce((prevEl, el) => prevEl + el, 0));
+
+            function sortSelect(arrSum, array) {
+                const preLastIndex = arrSum.length - 1;
+                for (let i = 0; i < preLastIndex; i++) {
+                    let currentMaxIndex = i;
+                    for (let j = i + 1; j < arrSum.length; j++) {
+                        if (arrSum[j] > arrSum[currentMaxIndex]) currentMaxIndex = j;
                     }
-                };
+                    if (i !== currentMaxIndex) {
+                        let tmp = arrSum[i];
+                        arrSum[i] = arrSum[currentMaxIndex];
+                        arrSum[currentMaxIndex] = tmp;
 
-                // Сортуємо рядки за спаданням суми елементів
-                const sortedRows1 = arr.sort(compareRows1);
-
-                document.write(sortedRows1);
+                        tmp = array[i];
+                        array[i] = array[currentMaxIndex];
+                        array[currentMaxIndex] = tmp;
+                    }
+                }
+                return array;
+            }
+            console.table(sortSelect(rowSum, arrCopy1))
+            document.write(sortSelect(rowSum, arrCopy1));
 
         </script>
     </ol>
