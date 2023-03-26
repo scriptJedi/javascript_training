@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #1</title>
+</head>
+
+<body>
+    <h1>Задача #1</h1>
+
+    <p>
+
+        Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+
+    </p>
+
+    <script>
+
+        const userDate = {
+            day: 26,
+            month: 3,
+            year: 2023,
+        };
+
+        const getYearWhichWillBeInNMonth = (day, month, year, N) => {
+            const monthsInYear = 12;
+            const currentMonth = (month + N) % monthsInYear;
+            const currentYear = year + Math.floor((month + N) / monthsInYear);
+            return {
+                day: day,
+                month: currentMonth,
+                year: currentYear
+            };
+        };
+
+        const N = parseInt(prompt('Введіть кількість місяців'));
+        const newObj = getYearWhichWillBeInNMonth(userDate.day, userDate.month, userDate.year, N);
+        document.write(`Через ${N} місяців буде ${newObj.year}`);
+
+
+
+
+    </script>
+</body>
+
+</html>

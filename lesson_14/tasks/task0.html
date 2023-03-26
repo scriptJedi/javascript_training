@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #0</title>
+</head>
+
+<body>
+    <h1>Задача #0</h1>
+
+    <p>
+
+        Описати масив об’єктів – сайтів розроблених компанією з такими властивостями <br>
+        <br>
+        назва компанії на час розробки (назву періодично змінюють) <br>
+        власник компанії <br>
+        споснсори (масив спонсорів) <br>
+        * прізвище спонсора <br>
+        * ім’я спонсора <br>
+        * сума вкладень спонсора <br>
+        рік випуску <br>
+        вартість сайту <br>
+
+    </p>
+
+    <script>
+
+        const companyProducts = [
+            {
+                name: 'Apple',
+                owner: 'Tim Cock',
+                sponsors: [
+                    { firstName: 'Jeff', lastName: 'Bezos', donation: 89000 },
+                    { firstName: 'Antonio', lastName: 'Banderas', donation: 10000 },
+                    { firstName: 'Petr', lastName: 'Pavel', donation: 410000 },
+                ],
+                yearOfManufacture: 2009,
+                cost: 180000,
+            },
+            {
+                name: 'Microsoft',
+                owner: 'Bill Gates',
+                sponsors: [
+                    { firstName: 'Paul', lastName: 'Allen', donation: 150000 },
+                    { firstName: 'Satya', lastName: 'Nadella', donation: 160000 },
+                    { firstName: 'Buzz', lastName: 'Aldrin', donation: 3000 },
+                ],
+                yearOfManufacture: 2001,
+                cost: 53000,
+            },
+            {
+                name: 'Amazon',
+                owner: 'Jeff Bezos',
+                sponsors: [
+                    { firstName: 'Andy', lastName: 'Jassy', donation: 13000 },
+                    { firstName: 'Keith', lastName: 'Alexander', donation: 106500 },
+                    { firstName: 'Patty', lastName: 'Stonesifer', donation: 11600 },
+                ],
+                yearOfManufacture: 2009,
+                cost: 93000,
+            },
+            {
+                name: 'Tesla',
+                owner: 'Nikola Tesla',
+                sponsors: [
+                    { firstName: 'William', lastName: 'Tusk', donation: 15000 },
+                    { firstName: 'Owen', lastName: 'Diaz', donation: 10999 },
+                    { firstName: 'Victor', lastName: 'Yushenko', donation: 9000000 },
+                ],
+                yearOfManufacture: 2015,
+                cost: 6000,
+            },
+        ];
+
+    </script>
+
+    <br>
+    //========================================================================================================================================================
+
+
+    <p>
+        Знайти: <br>
+        1) загальну вартість усіх сайтів
+    </p>
+
+    <script>
+
+        let totalPriceAllProducts = companyProducts.reduce((prevSum, company) => prevSum + company.cost, 0);
+
+        document.write(`Загальна вартість сайтів: ${totalPriceAllProducts} <br>`)
+
+    </script>
+
+    <br>
+    //========================================================================================================================================================
+
+
+    <p>
+        2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+    </p>
+
+    <script>
+
+        let numOfSitesHaveBeenMadeInTheRange = companyProducts.reduce(
+            (counter, company) =>
+                company.yearOfManufacture >= 2000 &&
+                    company.yearOfManufacture <= 2009
+                    ? counter + 1
+                    : counter,
+            0
+        );
+
+        document.write(`Кількість сайтів що була зроблена між 2000 та 2009рр сайтів: ${numOfSitesHaveBeenMadeInTheRange} <br>`)
+
+    </script>
+
+    <br>
+    //========================================================================================================================================================
+
+    <p>
+        3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+    </p>
+
+    <script>
+
+        let donationsCount = 0;
+        for (const company of companyProducts) {
+            let currentSum = 0;
+            const { sponsors: sponsorsList } = company;
+            for (const sponsor of sponsorsList) {
+                currentSum += sponsor.donation;
+            }
+            if (currentSum > 100000) donationsCount++;
+        }
+
+        document.write(`Кількість сайтів, де сума спонсорських вкладень була більшою за 100000: ${donationsCount} <br>`)
+
+    </script>
+
+    <br>
+    //========================================================================================================================================================
+
+    <p>
+        4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+    </p>
+
+    <script>
+
+        let allSponsorsArray = [];
+        for (const company of companyProducts) {
+            const { sponsors } = company;
+            for (const sponsor of sponsors) {
+                allSponsorsArray.push(`${sponsor.firstName} ${sponsor.lastName}`);
+            }
+        }
+
+        document.write(`Загальний список усіх спонсорів: ${allSponsorsArray.join(', ')} <br>`)
+
+    </script>
+
+    <br>
+    //========================================================================================================================================================
+
+    <p>
+        5) знайти рік, коли прибуток був найбільшим
+    </p>
+
+    <script>
+
+        let yearWhenHighestProfit = 0;
+        let maxProfit = -Infinity;
+        for (const company of companyProducts) {
+            const { cost, yearOfManufacture } = company;
+            if (cost > maxProfit) {
+                maxProfit = cost;
+                yearWhenHighestProfit = yearOfManufacture;
+            }
+        }
+
+        document.write(`У ${yearWhenHighestProfit}рр прибуток був найбільший та склав: ${maxProfit}$ <br>`)
+    </script>
+
+    <br>
+    //========================================================================================================================================================
+
+    <p>
+        6) упорядкувати список за спаданням прибутку
+    </p>
+
+    <script>
+
+        let sortable = [];
+
+        for (const company of companyProducts) {
+            sortable.push(company.cost);
+            sortable.sort((el1, el2) => el2 - el1);
+        }
+
+        document.write(`Список прибутку за спаданням: ${sortable.join(', ')} <br>`)
+
+    </script>
+
+    <br>
+    //========================================================================================================================================================
+
+    <p>
+        7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+    </p>
+
+    <script>
+
+        let sitesWithValueMore10000 = [];
+        let sitesWithValueOfUpTo10000 = [];
+        companyProducts.filter((company) =>
+            company.cost > 10000
+                ? sitesWithValueMore10000.push(company)
+                : sitesWithValueOfUpTo10000.push(company)
+        );
+
+        document.write(`Вивів результат у консоль`);
+        console.log(sitesWithValueMore10000);
+        console.log(sitesWithValueOfUpTo10000);
+
+    </script>
+
+
+</body>
+
+</html>
