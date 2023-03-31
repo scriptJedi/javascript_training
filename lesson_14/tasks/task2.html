@@ -529,8 +529,17 @@
 
     <script>
 
-        let availableItems = dataList.reduce((counter, data) => data.sell_status === 'available' ? counter + 1 : counter, 0);
-        document.write(`Наразі доступних товарів: ${counterPriceChange} шт.`)
+        let availableItems = dataList.reduce((idArray, data) => {
+            if (data.sell_status === 'available') {
+                let { id } = data;
+                idArray.push({ id });
+            }
+            return idArray;
+        }, []);
+
+        console.log('Наразі доступних товарів:' );
+        console.log(availableItems);
+        document.write(`Вивів результат у консоль`)
 
 
     </script>
@@ -557,6 +566,7 @@
             return availableList;
         }, []);
 
+        console.log('Тільки доступних для продажу товари:');
         console.log(availableItemsList);
         document.write('Вивів результат у консоль')
 

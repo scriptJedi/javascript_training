@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #4</title>
+</head>
+
+<style>
+    .banner-container {
+        max-width: 600px;
+    }
+
+    a img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <h1>Задача #4</h1>
+
+    <p>
+
+        Розробити клас Banner <br>
+        Поля <br>
+        ----- Масив об’єктів ( графічних зображень та посилань на сайти) <br>
+        Методи <br>
+        ----------Метод випадкового вибору об’єкта (графічного зображення та посилання) <br>
+        ----------Метод виведення випадкового банера
+
+    </p>
+
+    <div id="banner-container" class="banner-container"></div>
+
+    <script>
+
+        class Banner {
+            //Масив об’єктів ( графічних зображень та посилань на сайти)
+            constructor(images) {
+                this.images = images;
+            }
+            //Метод випадкового вибору об’єкта (графічного зображення та посилання)
+            getRndImg() {
+                let rndIndex = Math.floor(Math.random() * this.images.length);
+                return this.images[rndIndex];
+            }
+            //Метод виведення випадкового банера
+            showRandomBanner() {
+                const { image, link } = this.getRndImg();
+                const bannerContainer = document.getElementById('banner-container');
+                bannerContainer.innerHTML = `<a href="${link}"><img src="../img/${image}"></a>`;
+            }
+        }
+
+        const images = [
+            { image: '01.webp', link: 'http://example.com/page1' },
+            { image: '02.webp', link: 'http://example.com/page2' },
+            { image: '03.webp', link: 'http://example.com/page3' },
+            { image: '04.webp', link: 'http://example.com/page4' },
+            { image: '05.webp', link: 'http://example.com/page5' },
+        ];
+
+        const banner = new Banner(images);
+
+        banner.showRandomBanner();
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #2</title>
+</head>
+
+<body>
+    <h1>Задача #2</h1>
+
+    <p>
+        Створити об’єкт «Авто». <br>
+        Поля(властивості) <br>
+        ------Марка <br>
+        ------Розмір бака <br>
+        ------Кількість наявних літрів <br>
+        ------Кількість місць <br>
+        ------Кількість пасажирів <br>
+        Методи (дії) <br>
+        ------------Заправка на вказану кількість літрів <br>
+        ------------Виведення кількості пасажирів <br>
+        ------------Додавання пасажирів <br>
+        ------------Висадка пасажирів
+    </p>
+
+    <script>
+
+        function ObjectAuto(brand, fuelTankSize, availableLiters, numberOfSeats, passengersNumber) {
+            this.brand = brand;
+            this.fuelTankSize = fuelTankSize;
+            this.availableLiters = availableLiters;
+            this.numberOfSeats = numberOfSeats;
+            this.passengersNumber = passengersNumber;
+        };
+
+        ObjectAuto.prototype.refuelingNumber = function (liters) {
+            //Заправка на вказану кількість літрів
+            if (this.availableLiters + liters <= this.fuelTankSize) {
+                this.availableLiters += liters;
+            } else {
+                console.log('Стільки не влізе');
+            };
+        };
+
+        ObjectAuto.prototype.displayingTheNumberPassengers = function () {
+            //Виведення кількості пасажирів
+            document.write(this.passengersNumber);
+        };
+
+        ObjectAuto.prototype.addingPassengers = function (passengers) {
+            //Додавання пасажирів
+            if (this.passengersNumber + passengers <= this.numberOfSeats)
+                this.passengersNumber += passengers;
+            else console.log('Забагато, всі не влізете');
+        };
+
+        ObjectAuto.prototype.removePassengers = function (passengers) {
+            //Висадка пасажирів
+            if (this.passengersNumber - passengers >= 0)
+                this.passengersNumber -= passengers;
+            else console.log('Люди закінчились, немає кого висаджувати');
+        };
+
+        let auto1 = new ObjectAuto('Audi', 70, 45, 5, 3);
+
+        console.log(auto1);
+
+        document.write(`Повний об'єм баку ${auto1.fuelTankSize}, літрів до заправки: ${auto1.availableLiters}, `);
+        auto1.refuelingNumber(25);
+        document.write(`літрів після заправки: ${auto1.availableLiters} <br>`);
+
+        document.write('Поточна кількість пасажирів: ');
+        auto1.displayingTheNumberPassengers();
+
+        auto1.addingPassengers(2);
+        document.write(`<br> Кількість пасажирів після додавання: ${auto1.passengersNumber} <br>`);
+
+        auto1.removePassengers(5);
+        document.write(`Кількість пасажирів після висадки:  ${auto1.passengersNumber} <br>`);
+
+    </script>
+
+
+</body>
+
+</html>

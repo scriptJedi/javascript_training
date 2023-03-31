@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #3</title>
+</head>
+
+<body>
+    <h1>Задача #3</h1>
+
+    <p>
+        Розробити клас MultChecker для перевірки таблиці множення. <br>
+        <br>
+        Поля <br>
+        -----Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7) <br>
+        -----Кількість правильних відповідей <br>
+        -----Кількість неправильних відповідей <br>
+        Методи <br>
+        ----------Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване) <br>
+        ----------Перевірка правильності вказаної відповіді <br>
+        ----------render - виведення інформації про тестування на екран
+
+    </p>
+
+    <script>
+
+        class MultChecker {
+            constructor() {
+                this.currentNum = 0;
+                this.correctAnswersNum = 0;
+                this.incorrectAnswersNum = 0;
+            }
+
+            //Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+            generateAnExample() {
+                const randomNum = 1 + Math.floor(Math.random() * (9 - 1 + 1));;
+                const correctAnswer = randomNum * this.currentNum;
+                return { randomNum, correctAnswer };
+            };
+
+            //Перевірка правильності вказаної відповіді
+            checkingExample() {
+                do {
+                    this.currentNum = this.currentNum || parseInt(prompt('Оберіть число, табличку множення якого ви хочете перевірити'));
+                    const { randomNum, correctAnswer } = this.generateAnExample();
+                    const userResponse = parseInt(prompt(`Чому дорівнює добуток? ${this.currentNum} * ${randomNum}`));
+                    if (userResponse === correctAnswer) {
+                        this.correctAnswersNum++;
+                        alert(`Правильно!
+                        Правильних відповідей: ${this.correctAnswersNum}
+                        Не правильних відповідей: ${this.incorrectAnswersNum}
+                        `);
+                    }
+                    else {
+                        this.incorrectAnswersNum++;
+                        alert(`Не правильно!
+                        Правильних відповідей: ${this.correctAnswersNum}
+                        Не правильних відповідей: ${this.incorrectAnswersNum}
+                        `);
+                    }
+                } while (confirm('Хочете продовжувати?'));
+            };
+
+            //render - виведення інформації про тестування на екран
+            render() {
+                document.write(`
+                Табличка множення на ${this.currentNum} <br>
+                Правильних відповідей: ${this.correctAnswersNum} <br>
+                Не правильних відповідей: ${this.incorrectAnswersNum}
+                `);
+            };
+        }
+
+        let multiplicationChecker = new MultChecker();
+        console.log(multiplicationChecker);
+
+        multiplicationChecker.checkingExample();
+        multiplicationChecker.render();
+
+
+    </script>
+
+
+</body>
+
+</html>

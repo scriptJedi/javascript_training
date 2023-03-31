@@ -31,16 +31,16 @@
         
         */
 
+       let index = 0;
         function createIterator(word) {
-            let index = 0;
             return function () {
                 if (index < word.length)
                     return word[index++];
                 else return null;
             };
-        };
+        }
 
-        const word = prompt('Enter the word');
+        const word = 'javaScript';
         const iterator = createIterator(word);
 
         let translation = "";
@@ -48,7 +48,7 @@
 
         alert(`Translate the word "${word}"`);
 
-        while (true) {
+        while (index < word.length) {
             const letter = prompt("Enter the next letter:");
             translation += letter;
 
@@ -61,9 +61,11 @@
                 break;
             }
         }
-        document.write(`Word: ${word} <br>`)
+
+        document.write(`Word: ${word} <br>`);
         document.write(`You entered: ${translation} <br>`);
         document.write(`You guessed ${correctLetters} out of ${word.length} letters.`);
+
 
 
     </script>

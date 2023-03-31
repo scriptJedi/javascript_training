@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #5</title>
+</head>
+
+<body>
+    <h1>Задача #5</h1>
+
+    <p>
+
+        Розробити клас «Керівник танців» <br>
+        Поля <br>
+        ----- Масив імен хлопців <br>
+        ----- Масив імен дівчат <br>
+        Методи <br>
+        ---------- Метод випадкового вибору імені хлопця <br>
+        ---------- Метод випадкового вибору імені дівчини <br>
+        ---------- Метод виведення пари для танців <br>
+        ---------- Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців <br>
+
+    </p>
+
+    <script>
+
+        class DanceLeader {
+            constructor(boysArr, girlsArr) {
+                //Масив імен хлопців
+                this.boysArr = boysArr;
+                //Масив імен хлопців
+                this.girlsArr = girlsArr;
+            }
+
+            //Метод випадкового вибору імені хлопця
+            getRndNameBoy() {
+                const rndIndex = Math.floor(Math.random() * this.boysArr.length);
+                return this.boysArr[rndIndex];
+            }
+
+            // Метод випадкового вибору імені дівчини
+            getRndNameGirl() {
+                const rndIndex = Math.floor(Math.random() * this.girlsArr.length);
+                return this.girlsArr[rndIndex];
+            }
+
+            //Метод виведення пари для танців
+            bringingCoupleForDancing() {
+                const boy = this.getRndNameBoy();
+                const girl = this.getRndNameGirl();
+                return console.log(`На танець виходить пара ${boy} та ${girl}`);;
+            }
+
+            run() {
+                setInterval(() => {
+                    this.bringingCoupleForDancing();
+                }, 5000);
+            }
+        }
+
+        const boysNames = ['Андрій', 'Богдан', 'Віталій', 'Геннадій', 'Дмитро'];
+        const girlsNames = ['Анна', 'Богдана', 'Вікторія', 'Галина', 'Дарина'];
+
+        const danceLeader = new DanceLeader(boysNames, girlsNames);
+
+        danceLeader.run();
+
+        document.write('Результат у консолі')
+
+    </script>
+
+
+</body>
+
+</html>

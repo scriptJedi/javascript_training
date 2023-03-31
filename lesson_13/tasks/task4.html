@@ -25,16 +25,20 @@
 
         function addition() {
             let userInput = 0;
-            let intervalId = setInterval(() => {
-                let num1 = getRndNum();
-                let num2 = getRndNum();
-                userInput = parseInt(prompt(`${num1} + ${num2}`));
-                if (userInput === num1 + num2) alert('Вірно!');
-                else alert('Не вірно!');
-            }, 10000);
+            let num1 = getRndNum();
+            let num2 = getRndNum();
+            userInput = parseInt(prompt(`${num1} + ${num2}`));
+            if (userInput === num1 + num2) alert('Вірно!');
+            else {
+                alert('Не вірно!');
+                const continueQuestion = confirm('Ви хочете продовжувати?');
+                if (continueQuestion === false) clearInterval(intervalId);
+            }
         }
 
-        addition();
+        let intervalId = setInterval(() => {
+            addition();
+        }, 1000);
 
     </script>
 </body>

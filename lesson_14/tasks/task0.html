@@ -193,14 +193,29 @@
 
     <script>
 
-        let sortable = [];
+        let companiesList = [...companyProducts];
+        let sumList = companiesList.map(company => company.cost);
 
-        for (const company of companyProducts) {
-            sortable.push(company.cost);
-            sortable.sort((el1, el2) => el2 - el1);
+        function inclusionSort(companiesList, sumList) {
+            let array = [...sumList];
+            let count = 0;
+            let currentElement, i;
+            for (let k = 1; k < array.length; k++) {
+                currentElement = array[k];
+                i = k - 1;
+                while (i >= 0 && array[i] < currentElement) {
+                    array[i + 1] = array[i];
+                    let tmp = { ...companiesList[i + 1] };
+                    companiesList[i + 1] = { ...companiesList[i] };
+                    companiesList[i] = { ...tmp };
+                    i--;
+                }
+                array[i + 1] = currentElement;
+            }
+            return array;
         }
-
-        document.write(`Список прибутку за спаданням: ${sortable.join(', ')} <br>`)
+        let obj = inclusionSort(companiesList, sumList);
+        console.log(obj);
 
     </script>
 
@@ -215,10 +230,10 @@
 
         let sitesWithValueMore10000 = [];
         let sitesWithValueOfUpTo10000 = [];
-        companyProducts.filter((company) =>
+        companyProducts.forEach(company =>
             company.cost > 10000
-                ? sitesWithValueMore10000.push(company)
-                : sitesWithValueOfUpTo10000.push(company)
+                ? sitesWithValueMore10000.push(JSON.parse(JSON.stringify(company)))
+                : sitesWithValueOfUpTo10000.push(JSON.parse(JSON.stringify(company)))
         );
 
         document.write(`Вивів результат у консоль`);

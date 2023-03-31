@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task #1</title>
+</head>
+
+<body>
+    <h1>Задача #1</h1>
+
+    <p>
+
+        Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку. <br>
+        <br>
+        Поля(властивості) ----- Масив, у якому зберігається поле з зайцями <br>
+        Методи (дії) ----- 1. Метод пострілу (задається позиція пострілу) <br>
+        ----------------- 2. Виведення ігрового поля
+
+    </p>
+
+    <script>
+
+        function ShootingGallery() {
+            //Масив, у якому зберігається поле з зайцями
+            this.field = [];
+        }
+
+        ShootingGallery.prototype.getRndNum = function () {
+            return Math.floor(Math.random() * 2);
+        };
+
+        ShootingGallery.prototype.getField = function (length) {
+            for (let i = 0; i < length; i++) {
+                this.field.push(new Array(length).fill().map(el => this.getRndNum()));
+            }
+        };
+
+        ShootingGallery.prototype.getShoot = function (x, y) {
+            //Метод пострілу (задається позиція пострілу)
+            this.field[y][x] = 0;
+        };
+
+        ShootingGallery.prototype.printGameField = function () {
+            //Виведення ігрового поля
+            console.log(this.field);
+        };
+
+        const game = new ShootingGallery();
+        game.getField(3);
+        game.printGameField();
+        game.getShoot(1, 2);
+        game.printGameField();
+
+    </script>
+
+
+</body>
+
+</html>
