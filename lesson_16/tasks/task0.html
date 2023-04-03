@@ -38,6 +38,137 @@
         * -- Виведення дати (toString)
         */
 
+        class TDate {
+            #day;
+            #month;
+            #year;
+            constructor(initDay, initMonth, initYear) {
+                this.Day = initDay;
+                this.Month = initMonth;
+                this.Year = initYear;
+            }
+
+            get Day() {
+                return this.#day;
+            }
+            get Month() {
+                return this.#month;
+            }
+            get Year() {
+                return this.#year;
+            }
+
+            set Day(newDay) {
+                if (newDay > 31 || newDay < 1)
+                    throw new Error('Day is incorrect');
+                this.#day = newDay;
+            }
+            set Month(newMonth) {
+                if (newMonth > 12 || newMonth < 1)
+                    throw new Error('Month is incorrect');
+                this.#month = newMonth;
+
+            }
+            set Year(newYear) {
+                if (newYear < 0)
+                    throw new Error('Year can`t be empty');
+                this.#year = newYear;
+
+            }
+            //Метод збільшення днів на певну кількість
+            increasingDays(newValue) {
+                this.#day += newValue;
+                this.increasingMonth(Math.floor(this.#day / 31));
+                this.#day = (this.#day % 31) + 1;
+            }
+
+            //Метод зменшення днів на певну кількість
+            decreasingDays(newValue) {
+                // this.#day -= newValue;
+                // this.decreasingMonth(Math.floor((this.#day - 1) / 31));
+                // this.#day = ((this.#day - 1) % 31) + 1;
+                this.#day -= newValue;
+                while (this.#day < 1) {
+                    this.#day += 31;
+                    this.decreasingMonth(1);
+                }
+            }
+
+            //Метод збільшення місяців на певну кількість
+            increasingMonth(newValue) {
+                this.#month += newValue;
+                this.increasingYears(Math.floor((this.#month - 1) / 12));
+                this.#month = (this.#month - 1) % 12 + 1;
+            }
+
+            //Метод зменшення місяців на певну кількість
+            decreasingMonth(newValue) {
+                // Хотів як легше, але значення уходять в мінус :(
+
+                // this.#month -= newValue;
+                // this.decreasingYears(Math.floor((this.#month - 1) / 12));
+                // this.#month = (this.#month - 1) % 12 + 1;
+
+                // Тому зробив так
+                this.#month -= newValue;
+                while (this.#month < 1) {
+                    this.#month += 12;
+                    this.decreasingYears(1);
+                }
+            }
+
+            //Метод збільшення років на певну кількість
+            increasingYears(newValue) {
+                if (newValue >= 0)
+                    return this.#year = (this.#year + newValue);
+                else throw new Error('Year is incorrect');
+            }
+            //Метод зменшення років на певну кількість
+            decreasingYears(newValue) {
+                if (this.#year - newValue > 0)
+                    return this.#year = (this.#year - newValue);
+                else throw new Error('Year is incorrect');
+            }
+
+            //Введення дати
+            setDate(newDay, newMonth, newYear) {
+                if (newDay > 0 && newDay <= 31)
+                    this.#day = newDay;
+                else throw new Error('Day is incorrect');
+                if (newMonth > 0 && newMonth <= 12)
+                    this.#month = newMonth;
+                else throw new Error('Month is incorrect');
+                if (newYear > 0)
+                    this.#year = newYear;
+                else throw new Error('Year is incorrect');
+            }
+
+            //Виведення дати(toString)
+            toString() {
+                document.write(`
+                ${this.#day}.${this.#month}.${this.#year}
+                `);
+            }
+        }
+
+        let date = new TDate(2, 4, 2023);
+
+        // date.increasingYears(20);
+
+        date.setDate(29, 10, 2023);
+
+        date.increasingMonth(10);
+        date.increasingDays(2);
+        date.increasingYears(3);
+
+        date.decreasingDays(64);
+        date.decreasingMonth(7);
+        date.decreasingYears(2025);
+
+
+        date.toString();
+        console.log(date);
+
     </script>
 
 

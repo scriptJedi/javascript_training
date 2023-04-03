@@ -23,6 +23,94 @@
 
     <script>
 
+        /**
+        * Властивості
+        * - купюри
+        * Методи
+        * --  Метод який повертає максимальну можливу суму для видачі
+        * --  Метод який повертає мінімальний можливий номінал купюри
+        * --  Метод який знімає деяку суму з банкомата
+        */
+
+        class TBankomat {
+            constructor() {
+                this.notes = {
+                    5: 10,
+                    10: 40,
+                    20: 35,
+                    50: 100,
+                    100: 150,
+                    200: 600,
+                    500: 40,
+                    1000: 5,
+                };
+            }
+
+            // метод який повертає максимальну можливу суму для видачі
+            getMaxWithdrawal() {
+                let maxAmount = 0;
+                for (let note in this.notes) {
+                    maxAmount += note * this.notes[note];
+                }
+                return maxAmount;
+            }
+
+            // метод який повертає мінімальний можливий номінал купюри
+            getMinNote() {
+                for (let note in this.notes) {
+                    if (this.notes[note] > 0) {
+                        return note;
+                    }
+                }
+                return null; // якщо купюри закінчились
+            }
+
+            // метод який знімає деяку суму з банкомата
+            withdraw(amount) {
+                if (amount > this.getMaxWithdrawal()) {
+                    return "Недостатньо коштів у банкоматі для видачі запрошеної суми.";
+                }
+
+                let remainingAmount = amount;
+
+                // перебираємо купюри в порядку спадання номіналу
+                let notesArray = Object.keys(this.notes).map(Number).sort((a, b) => b - a);
+
+                for (let note of notesArray) {
+                    let noteCount = Math.floor(remainingAmount / note);
+                    if (noteCount > this.notes[note]) {
+                        noteCount = this.notes[note];
+                    }
+                    remainingAmount -= noteCount * note;
+                    this.notes[note] -= noteCount;
+                }
+
+                if (remainingAmount > 0) {
+                    return "Недостатньо купюр для видачі запрошеної суми.";
+                }
+
+                return "Операція пройшла успішно.";
+            }
+        }
+
+
+        let bankomat = new TBankomat();
+
+        let test = bankomat.getMaxWithdrawal();
+        console.log(test);
+
+        let test1 = bankomat.getMinNote();
+        console.log(test1);
+
+        let test2 = bankomat.withdraw(160000);
+        console.log(test2);
+
+        let test3 = bankomat.getMaxWithdrawal();
+
+        console.log(test3);
+
+        console.log(bankomat);
+
 
 
     </script>

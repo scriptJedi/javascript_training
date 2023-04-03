@@ -27,7 +27,85 @@
 
     <script>
 
+        class Company {
+            constructor(initName, initDate, initServices, initAddress) {
+                this.companyName = initName;
+                this.date = initDate;
+                this.services = initServices;
+                this.address = initAddress;
+            }
 
+            getCompanyExistenceYears(currentYear) {
+                return currentYear - this.date.year;
+            }
+
+            getBranchesInTheSpecifiedCity(cityName) {
+                return this.address.filter(branch => branch.city === cityName);
+            }
+
+            getServicesByBudgetAndDuration(budget, duration) {
+                let filteredServices = this.services.filter(service => service.cost <= budget && service.duration <= duration);
+
+                let table = `
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Послуга</th>
+                                    <th>Ціна</th>
+                                    <th>Час виконання</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                    `;
+
+                filteredServices.forEach(service => {
+                    table += `
+                            <tr>
+                                <td>${service.name}</td>
+                                <td>${service.cost}</td>
+                                <td>${service.duration}</td>
+                            </tr>
+                            `;
+                });
+
+                table += `  
+                            </tbody>
+                            </table>
+                        `;
+
+                document.write(table);
+            }
+
+        }
+
+
+        let newCompany = new Company(
+            'Apple',
+            { year: 1976, month: 4 },
+            [
+                { name: 'Apple Music', cost: 5, duration: 1 },
+                { name: 'Apple TV+', cost: 10, duration: 1 },
+            ],
+            [
+                { country: 'Ukraine', city: 'Kyiv', street: 'Nezalezhnosti', number: 4 },
+                { country: 'Ukraine', city: 'Kyiv', street: 'Stepan Bandera', number: 16 },
+                { country: 'USA', city: 'Los Angeles', street: 'S Broadway', number: 802 },
+                { country: 'USA', city: 'Los Angeles', street: 'Beverly Blvd', number: 8500 },
+            ],
+        );
+
+        console.log(newCompany);
+
+        let companyExistence = newCompany.getCompanyExistenceYears(2023);
+
+        let test = newCompany.getBranchesInTheSpecifiedCity('Kyiv');
+
+        let test1 = newCompany.getServicesByBudgetAndDuration(5, 1);
+
+        console.log(test1);
+        console.log(test);
+
+        console.log(companyExistence);
 
     </script>
 

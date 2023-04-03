@@ -23,7 +23,87 @@
 
     <script>
 
+        /**
+        * Властивості
+        * - сума
+        * Методи
+        * --  Метод додавання грошової маси вказуючи необхідну суму у гривнях
+        * --  Метод вилучення грошової маси вказуючи необхідну суму у гривнях
+        * --  Визначення курсу долара при якому сума у гривнях збільшиться на 100
+        * --  Курс долара зберігати в окремому полі
+        */
 
+        class TMoney {
+            #amount = 0;
+            #exchangeRate = 0;
+
+            constructor(initAmount, USDCourse) {
+                this.Amount = initAmount;
+                this.USD_course = USDCourse;
+            }
+
+            get Amount() {
+                return this.#amount;
+            }
+
+            set Amount(newValue) {
+                if (newValue < 0)
+                    throw new Error('Exchange Rate is incorrect');
+                this.#amount = newValue;
+            }
+
+            get USD_course() {
+                return this.#exchangeRate;
+            }
+
+            set USD_course(value) {
+                if (value < 0)
+                    throw new Error('Course is incorrect');
+                this.#exchangeRate += value;
+            }
+
+            // Метод додавання грошової маси вказуючи необхідну суму у гривнях
+            add(amountInUAH) {
+                if (amountInUAH < 0)
+                    throw new Error('Amount is incorrect');
+                const amountInUSD = amountInUAH / this.#exchangeRate;
+                this.#amount += amountInUSD;
+            }
+
+            //Метод вилучення грошової маси вказуючи необхідну суму у гривнях
+            remove(amountInUAH) {
+                const amountInUSD = amountInUAH / this.#exchangeRate;
+                if (amountInUSD > this.#amount)
+                    throw new Error("Insufficient funds");
+                this.#amount -= amountInUSD;
+            }
+
+            // Визначення курсу долара при якому сума у гривнях збільшиться на 100
+            getAmountWithIncrease() {
+                const amountWithIncrease = this.#amount * this.#exchangeRate + 100;
+                return amountWithIncrease;
+            }
+
+            toString() {
+                document.write(`
+                Актуальний курс: ${this.#exchangeRate} <br>
+                Сума на балансі: ${this.#amount.toFixed(3)}
+                `);
+            }
+        }
+
+        let money = new TMoney(2000, 38.3);
+
+        money.add(38300);
+        money.remove(2300);
+
+
+        const amountWithIncrease = money.getAmountWithIncrease(); // отримання суми у гривнях, яка відповідає збільшенню на 100
+        console.log(amountWithIncrease);
+
+
+        money.toString();
+        console.log(money);
 
     </script>
 
