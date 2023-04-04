@@ -68,7 +68,7 @@
             // метод який знімає деяку суму з банкомата
             withdraw(amount) {
                 if (amount > this.getMaxWithdrawal()) {
-                    return "Недостатньо коштів у банкоматі для видачі запрошеної суми.";
+                    throw new Error('Недостатньо коштів у банкоматі для видачі запрошеної суми.');
                 }
 
                 let remainingAmount = amount;
@@ -86,7 +86,7 @@
                 }
 
                 if (remainingAmount > 0) {
-                    return "Недостатньо купюр для видачі запрошеної суми.";
+                    throw new Error('Недостатньо купюр для видачі запрошеної суми.');
                 }
 
                 return "Операція пройшла успішно.";
@@ -106,6 +106,8 @@
         console.log(test2);
 
         let test3 = bankomat.getMaxWithdrawal();
+
+        // let test4 = bankomat.withdraw(10000000);
 
         console.log(test3);
 
